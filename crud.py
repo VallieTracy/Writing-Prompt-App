@@ -12,6 +12,8 @@ def create_user(email,first_name, last_name, password):
 
     return user
 
+def create_nugget()
+
 
 
 

@@ -1,4 +1,5 @@
 """Setting up classes for my database and tables"""
+# DB name - writers
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -33,6 +34,19 @@ class Nugget(db.Model):
 
     def __repr__(self):
         return f'<Nugget nugget_id = {self.nugget_id}; email = {self.email}; nugget = {self.nugget}>'
+
+class Word(db.Model):
+    """A list of words for the writing prompts.  Will be attached to an email if a user has added it.  Otherwise it's considered part of the original 2,500 words"""
+
+    __tablename__ = 'words'
+
+    word = db.Column(db.String(30), primary_key=True, unique=True)
+    email = db.Column(db.String, db.ForeignKey('users.email'), nullable=True)
+
+    word_owner = db.relationship('User', backref='words')
+
+    def __repr__(self):
+        return f'<Word word = {self.word}; email = {self.email}>'
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///writers", echo=True):

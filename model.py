@@ -35,7 +35,7 @@ class Nugget(db.Model):
         return f'<Nugget nugget_id = {self.nugget_id}; email = {self.email}; nugget = {self.nugget}>'
 
 
-def connect_to_db(flask_app, db_uri="postgresql:///ratings", echo=True):
+def connect_to_db(flask_app, db_uri="postgresql:///writers", echo=True):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     flask_app.config["SQLALCHEMY_ECHO"] = echo
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False

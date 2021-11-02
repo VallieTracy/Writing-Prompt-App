@@ -17,7 +17,7 @@ API_KEY = os.environ['DICTIONARY_KEY']
 def index():
     """Show homepage."""
 
-    return render_template('base.html')
+    return render_template('log-in.html')
 
 
 

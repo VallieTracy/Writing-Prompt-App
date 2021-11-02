@@ -30,7 +30,7 @@ class Nugget(db.Model):
     nugget = db.Column(db.Text, nullable=False)
     email = db.Column(db.String, db.ForeignKey('users.email'), nullable=False)
 
-    first_name = db.relationship('User', backref='nuggets')
+    user = db.relationship('User', backref='nuggets')
 
     def __repr__(self):
         return f'<Nugget nugget_id = {self.nugget_id}; email = {self.email}; nugget = {self.nugget}>'
@@ -43,7 +43,7 @@ class Word(db.Model):
     word = db.Column(db.String(30), primary_key=True, unique=True)
     email = db.Column(db.String, db.ForeignKey('users.email'), nullable=True)
 
-    word_owner = db.relationship('User', backref='words')
+    user = db.relationship('User', backref='words')
 
     def __repr__(self):
         return f'<Word word = {self.word}; email = {self.email}>'

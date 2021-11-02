@@ -24,8 +24,7 @@ def create_nugget(nugget, email):
     return nugget
 
 def create_word(word, email):
-    """Create and return a new word"""
-    
+    """Create and return a new word"""    
 
     word = Word(word=word, email=email)
 
@@ -33,6 +32,11 @@ def create_word(word, email):
     db.session.commit()
 
     return word
+
+def get_user_by_email(email):
+    """Return a user by email."""
+
+    return User.query.filter(User.email == email).first()
 
 if __name__ == '__main__':
     from server import app

@@ -43,11 +43,10 @@ def log_in():
         welcome = f"Welcome back {user.first_name}!"
         return render_template('testing.html', welcome_message=welcome)
         
-
-@app.route('/register', methods=['POST'])
+@app.route('/register')
 def register():
-    """Process a new user"""
     return render_template('registration.html')
+
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

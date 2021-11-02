@@ -30,19 +30,24 @@ def log_in():
     password = request.form.get('password')
 
     user = crud.get_user_by_email(email)
-    # welcome = f"Welcome back {user.first_name}!"
-    
+   
 
     if not user or user.password != password:
         flash("The email or password you entered was incorrect.")
+        return redirect('/')
+
+    # So far, the else statement is just redirecting to a new html page and displaying the welcome message.  For testing purposes only!    
     else:
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
-        flash(f"Welcome back, {user.first_name}!")
+        welcome = f"Welcome back {user.first_name}!"
+        return render_template('testing.html', welcome_message=welcome)
+        
 
-    return redirect('/')
-    # return render_template('testing.html', welcome_message = welcome)
-
+@app.route('/register', methods=['POST'])
+def register():
+    """Process a new user"""
+    return render_template('registration.html')
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

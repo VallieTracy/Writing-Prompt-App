@@ -1,8 +1,9 @@
 """CRUD operations"""
 
-from model import db, User, Nugget, connect_to_db
+from model import db, User, Nugget, Word, connect_to_db
 
-def create_user(email,first_name, last_name, password):
+
+def create_user(email, first_name, last_name, password):
     """Create and return a new user."""
 
     user = User(email=email, first_name=first_name, last_name=last_name, password=password)
@@ -12,12 +13,26 @@ def create_user(email,first_name, last_name, password):
 
     return user
 
-def create_nugget()
+def create_nugget(nugget, email):
+    """Create and return a new nugget"""
 
+    nugget = Nugget(nugget=nugget, email=email)
 
+    db.session.add(nugget)
+    db.session.commit()
 
+    return nugget
 
+def create_word(word, email):
+    """Create and return a new word"""
+    
 
+    word = Word(word=word, email=email)
+
+    db.session.add(word)
+    db.session.commit()
+
+    return word
 
 if __name__ == '__main__':
     from server import app

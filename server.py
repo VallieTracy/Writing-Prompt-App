@@ -30,7 +30,7 @@ def log_in():
     password = request.form.get('password')
 
     user = crud.get_user_by_email(email)
-   
+    random_word = crud.get_random_word()
 
     if not user or user.password != password:
         flash("The email or password you entered was incorrect.")
@@ -41,7 +41,7 @@ def log_in():
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
         welcome = f"Welcome back {user.first_name}!"
-        return render_template('writing_directions.html', welcome_message=welcome)
+        return render_template('writing_directions.html', welcome_message=welcome, word=random_word)
         
 @app.route('/register')
 def register():

@@ -2,6 +2,8 @@
 
 from model import db, User, Nugget, Word, connect_to_db
 
+import random
+
 
 def create_user(email, first_name, last_name, password):
     """Create and return a new user."""
@@ -37,6 +39,12 @@ def get_user_by_email(email):
     """Return a user by email."""
 
     return User.query.filter(User.email == email).first()
+
+def get_random_word():
+    """Select random word from 'words' table"""
+
+    return random.choice((Word.query.all())).word
+
 
 if __name__ == '__main__':
     from server import app

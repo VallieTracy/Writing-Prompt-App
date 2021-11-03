@@ -1,0 +1,22 @@
+prompts_dicts = [
+    {'name': 'single word with multiple meanings',
+     'directions': ['first prompt - 1',
+                    'first prompt - 2',
+                    'first prompt - 3']},
+    {'name': 'two minute sprints',
+     'directions': ['second prompt - 1',
+                    'second prompt - 2',
+                    'second prompt - 3']},
+    {'name': 'random combinations',
+     'directions': ['third prompt - 1',
+                    'third prompt - 2',
+                    'third prompt - 3']},
+    {'name': 'mind mapping',
+     'directions': ['fourth prompt - 1',
+                    'fourth prompt - 2',
+                    'fourth prompt - 3']},
+    {'name': 'endings into beginnings',
+     'directions': ['fifth prompt - 1',
+                    'fifth prompt - 2',
+                    'fifth prompt - 3']}
+]

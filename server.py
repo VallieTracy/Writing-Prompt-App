@@ -6,15 +6,12 @@ import requests
 import crud
 from jinja2 import StrictUndefined
 
-
-
-
 app = Flask(__name__)
 app.secret_key = 'SECRETSECRETSECRET'
 
 API_KEY = os.environ['DICTIONARY_KEY']
 
-
+writing_directions = ['prompt 1', 'prompt 2', 'prompt 3']
 
 @app.route('/')
 def index():
@@ -41,7 +38,7 @@ def log_in():
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
         welcome = f"Welcome back {user.first_name}!"
-        return render_template('writing_directions.html', welcome_message=welcome, word=random_word)
+        return render_template('writing_directions.html', welcome_message=welcome, word=random_word, writing_directions=writing_directions)
         
 @app.route('/register')
 def register():

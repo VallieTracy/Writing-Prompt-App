@@ -41,7 +41,7 @@ def log_in():
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
         welcome = f"Welcome back {user.first_name}!"
-        return render_template('testing.html', welcome_message=welcome)
+        return render_template('writing_directions.html', welcome_message=welcome)
         
 @app.route('/register')
 def register():

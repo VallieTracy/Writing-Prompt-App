@@ -47,6 +47,25 @@ def log_in():
 def register():
     return render_template('registration.html')
 
+@app.route('/register-user', methods=['POST'])
+def register_user():
+    """Process user registration"""
+    
+    email = request.form.get('email')
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
+    password = request.form.get('password')
+
+    user = crud.get_user_by_email(email)
+
+    if user:
+        flash('An account with that email already exists.')
+        return redirect('/register')
+    else:
+        crud.create_user(email, first_name, last_name, password)
+        flash('Account created.  Please log-in.')
+        return redirect('/')
+
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

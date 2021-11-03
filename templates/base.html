@@ -16,6 +16,7 @@
         <h1 class = 'testing'>This is the landing page!</h1>
         {% block content %}{% endblock %}
         {% for msg in get_flashed_messages() %}
+        <!-- Flash messaging -->
         <p class="flash-msg">
           {{ msg }}
         </p>

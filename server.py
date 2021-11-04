@@ -28,7 +28,9 @@ def log_in():
     user = crud.get_user_by_email(email)
     random_word = crud.get_random_word()
 
-    writing_directions = writing_functions.get_random_dictionary()
+    writing_dictionary = writing_functions.get_random_dictionary()
+    prompt_name = writing_dictionary['name']
+    writing_directions = writing_dictionary['directions']
 
 
     if not user or user.password != password:
@@ -40,7 +42,7 @@ def log_in():
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
         welcome = f"Welcome back {user.first_name}!"
-        return render_template('writing_directions.html', welcome_message=welcome, word=random_word, writing_directions=writing_directions)
+        return render_template('writing_directions.html', welcome_message=welcome, word=random_word, writing_directions=writing_directions,name=prompt_name)
         
 @app.route('/register')
 def register():

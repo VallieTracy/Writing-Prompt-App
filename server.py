@@ -18,32 +18,6 @@ def index():
 
     return render_template('log-in.html')
 
-@app.route('/log-in', methods=['POST'])
-def log_in():
-    """Process user log-in"""
-
-    email = request.form.get('email')
-    password = request.form.get('password')
-
-    user = crud.get_user_by_email(email)
-    random_word = crud.get_random_word()
-
-    writing_dictionary = writing_functions.get_random_dictionary()
-    prompt_name = writing_dictionary['name']
-    writing_directions = writing_dictionary['directions']
-
-
-    if not user or user.password != password:
-        flash("The email or password you entered was incorrect.")
-        return redirect('/')
-
-    # So far, the else statement is just redirecting to a new html page and displaying the welcome message.  For testing purposes only!    
-    else:
-        # Log in user by storing the user's email in session
-        session["user_email"] = user.email
-        welcome = f"Welcome back {user.first_name}!"
-        return render_template('writing_directions.html', welcome_message=welcome, word=random_word, writing_directions=writing_directions,name=prompt_name)
-        
 @app.route('/register')
 def register():
     return render_template('registration.html')
@@ -66,6 +40,36 @@ def register_user():
         crud.create_user(email, first_name, last_name, password)
         flash('Account created.  Please log-in.')
         return redirect('/')
+
+@app.route('/writing-directions', methods=['POST'])
+def log_in():
+    
+    email = request.form.get('email')
+    password = request.form.get('password')
+    user = crud.get_user_by_email(email)
+
+    if not user or user.password != password:
+        flash("The email or password you entered was incorrect.")
+        return redirect('/')
+  
+    else:
+        writing_dictionary = writing_functions.get_random_dictionary()
+        prompt_name = writing_dictionary['name']
+        writing_directions = writing_dictionary['directions']
+        session["prompt_name"] = prompt_name
+        session["user_email"] = user.email
+        welcome = f"Welcome back {user.first_name}!"
+        return render_template('writing_directions.html', welcome_message=welcome, writing_directions=writing_directions,name=prompt_name)
+        
+
+
+# Route that directs to writing_prompt.html
+@app.route('/writing-prompt')
+def writing_prompt():
+
+    random_word = crud.get_random_word()
+    prompt_name = session["prompt_name"]
+    return render_template('writing_prompt.html', word=random_word, name=prompt_name)
 
 
 if __name__ == "__main__":

@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
-{% block title %}PROMPT{% endblock %}
+{% block title %}DIRECTIONS{% endblock %}
 
 {% block content %}
     <h6>Writing Directions</h6>
-    <h4>{{  name  }}</h4>
+    <h2>{{  name  }}</h2>
     <p>{{ welcome_message  }}</p>
-    <h2>Random Word: {{  word  }} (this is for testing purposes only, random word(s) will be next html page)</h2>
+    
     {% for direction in writing_directions %}
     <p>{{ direction }}</p>
     {% endfor %}
     
     <!-- Button that will take user from directions to html that will show random word(s) and have timer -->
-    <a class='btn border border-dark' role='button' href = 'https://vallietracy.github.io/'>BUTTON!</a>
+    <a class='btn border border-dark' role='button' href = '/writing-prompt'>BUTTON!</a>
     
  
 {% endblock %}

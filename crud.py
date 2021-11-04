@@ -47,16 +47,6 @@ def get_random_word():
 
     return random.choice((Word.query.all())).word
 
-# BELOW HERE: This is relating to my prompts.py file, so I'm thinking I should put this in another file.  CRUD only for db stuff??
-def test():
-
-    prompts_list = dp.prompts_dicts
-    for dictionary in prompts_list:
-        print(dictionary['directions'])
-    
-
-    
-
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

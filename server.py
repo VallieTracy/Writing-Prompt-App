@@ -5,13 +5,12 @@ import os
 import requests
 import crud
 from jinja2 import StrictUndefined
+import writing_functions
 
 app = Flask(__name__)
 app.secret_key = 'SECRETSECRETSECRET'
 
 API_KEY = os.environ['DICTIONARY_KEY']
-
-writing_directions = ['prompt 1', 'prompt 2', 'prompt 3']
 
 @app.route('/')
 def index():
@@ -28,6 +27,9 @@ def log_in():
 
     user = crud.get_user_by_email(email)
     random_word = crud.get_random_word()
+
+    writing_directions = writing_functions.get_random_dictionary()
+
 
     if not user or user.password != password:
         flash("The email or password you entered was incorrect.")

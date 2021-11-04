@@ -18,3 +18,14 @@ def get_random_directions():
     random_dict = get_random_dictionary()
     return random_dict['directions']
 
+def prompt_sentence():
+
+    random_dict = get_random_dictionary()
+    if random_dict['name'] == 'random combinations':
+        return f'TWO words'
+    else:
+        return random_dict['prompt']
+
+
+
+

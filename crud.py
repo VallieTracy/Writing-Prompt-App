@@ -47,6 +47,12 @@ def get_random_word():
 
     return random.choice((Word.query.all())).word
 
+def get_unique_second_word():
+    """Select a second random word different from the first random word"""
+    
+    available_words = db.session.query(Word).filter(Word.word != get_random_word())
+    return random.choice((available_words.all())).word
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

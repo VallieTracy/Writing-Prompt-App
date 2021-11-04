@@ -56,7 +56,12 @@ def log_in():
         writing_dictionary = writing_functions.get_random_dictionary()
         prompt_name = writing_dictionary['name']
         writing_directions = writing_dictionary['directions']
+        prompt = writing_dictionary['prompt']
+        random_word_qty = writing_dictionary['random_word_qty']
+        
         session["prompt_name"] = prompt_name
+        session["prompt"] = prompt
+        session["random_word_qty"] = random_word_qty
         session["user_email"] = user.email
         welcome = f"Welcome back {user.first_name}!"
         return render_template('writing_directions.html', welcome_message=welcome, writing_directions=writing_directions,name=prompt_name)
@@ -67,9 +72,12 @@ def log_in():
 @app.route('/writing-prompt')
 def writing_prompt():
 
-    random_word = crud.get_random_word()
+    random_word1 = crud.get_random_word()
+    random_word2 = crud.get_unique_second_word()
     prompt_name = session["prompt_name"]
-    return render_template('writing_prompt.html', word=random_word, name=prompt_name)
+    the_prompt = session["prompt"]
+    word_qty = session["random_word_qty"]
+    return render_template('writing_prompt.html', word1=random_word1, word2=random_word2, name=prompt_name, prompt=the_prompt, word_qty=word_qty)
 
 
 if __name__ == "__main__":

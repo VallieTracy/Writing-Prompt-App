@@ -2,12 +2,16 @@
 {% block title %}PROMPT{% endblock %}
 
 {% block content %}
-    <h6>Writing Prompt</h6>
+    <h6>Writing Prompt:</h6>
     <h2>{{  name  }}</h2>
     
-    
-    <h2>Random Word: {{  word  }}</h2>
-    
+    {% if word_qty == 2 %}
+    <p>{{ prompt }}</p>
+    <p>{{ word1 }} and {{ word2 }}</p>
+    {% else %}
+    <p>{{ prompt }}</p>
+    <p>{{ word1 }}</p>
+    {% endif %}
     
 
     

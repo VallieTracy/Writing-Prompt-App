@@ -63,6 +63,7 @@ def log_in():
         session["prompt"] = prompt
         session["random_word_qty"] = random_word_qty
         session["user_email"] = user.email
+        session["first_name"] = user.first_name
         welcome = f"Welcome back {user.first_name}!"
         return render_template('writing_directions.html', welcome_message=welcome, writing_directions=writing_directions,name=prompt_name)
         
@@ -95,6 +96,7 @@ def store_nugget():
 
 @app.route('/homepage')
 def homepage():
+
     return render_template('homepage.html')
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ API_KEY = os.environ['DICTIONARY_KEY']
 
 @app.route('/')
 def index():
-    """Show homepage."""
+    """Show landing page."""
 
     return render_template('log-in.html')
 
@@ -41,7 +41,7 @@ def register_user():
         flash('Account created.  Please log-in.')
         return redirect('/')
 
-@app.route('/writing-directions', methods=['POST'])
+@app.route('/log-in', methods=['POST'])
 def log_in():
     
     email = request.form.get('email')

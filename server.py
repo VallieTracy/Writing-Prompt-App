@@ -90,7 +90,11 @@ def store_nugget():
         flash('Your nugget was successfully stored!')
         
     else:
-        flash('No nugget was stored because you did not submit any text.')
+        flash('No nuggets added.')
+    return redirect('/homepage')
+
+@app.route('/homepage')
+def homepage():
     return render_template('homepage.html')
 
 if __name__ == "__main__":

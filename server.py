@@ -79,6 +79,19 @@ def writing_prompt():
     word_qty = session["random_word_qty"]
     return render_template('writing_prompt.html', word1=random_word1, word2=random_word2, name=prompt_name, prompt=the_prompt, word_qty=word_qty)
 
+# Route that will store a user's nugget of writing
+@app.route('/store-nugget', methods=['POST'])
+def store_nugget():
+
+    nugget = request.form.get('nugget')
+    email = session["user_email"]
+    if nugget != '':
+        crud.create_nugget(nugget, email)
+        flash('Your nugget was successfully stored!')
+        
+    else:
+        flash('No nugget was stored because you did not submit any text.')
+    return render_template('homepage.html')
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

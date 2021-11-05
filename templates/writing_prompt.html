@@ -13,7 +13,11 @@
     <p>{{ word1 }}</p>
     {% endif %}
     
-
+    <h2>Would you like to store any nuggets?</h2>
+    <form action='/store-nugget' method='post'> 
+        <textarea name='nugget'></textarea>
+        <input type='submit' value='Store my nugget!'>
+    </form>
     
  
 {% endblock %}

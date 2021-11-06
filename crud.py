@@ -38,9 +38,21 @@ def create_word(word, email):
     return word
 
 def get_user_by_email(email):
-    """Return a user by email."""
+    """Return a user object by email."""
 
     return User.query.filter(User.email == email).first()
+
+def get_nuggets_by_email(email):
+    """Return all nuggets by user email """
+
+    nuggets = []
+    # for nugget in (Nugget.query.options(db.joinedload('user'))
+    # .filter_by(email=email)
+    # .all()):
+    #     nuggets.append(nugget.nugget)
+    for nugget in (Nugget.query.filter_by(email=email).all()):
+        nuggets.append(nugget.nugget)
+    return nuggets
 
 def get_random_word():
     """Select random word from 'words' table"""

@@ -2,6 +2,15 @@
 {% block title %}Homepage{% endblock %}
 
 {% block content %}
-    <h6>Here's the user's homepage</h6>
+    <h6>{{ writer }}</h6>
+    <h1>Show me my:</h1>
+    <a class='btn border border-dark' role='button' href = '/homepage'>Nuggets</a>
+    <button onclick="Function()">Click</button>
+    <p id="sample"></p>
+    <script>
+    function Function() {
+    document.getElementById("sample").innerHTML = "Welcome";
+    }
+    </script>
  
 {% endblock %}

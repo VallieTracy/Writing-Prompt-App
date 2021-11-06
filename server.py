@@ -97,7 +97,8 @@ def store_nugget():
 @app.route('/homepage')
 def homepage():
 
-    return render_template('homepage.html')
+    writer = session["first_name"]
+    return render_template('homepage.html', writer=writer)
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

@@ -135,7 +135,8 @@ def api_call():
 
 @app.route('/add-word', methods=['POST'])
 def api_word_add():
-    word = request.form.get('word')
+    email = session["user_email"]
+    word = (request.form.get('word')).lower()
     base_url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'
     url = base_url + word
     payload = {'key': API_KEY}
@@ -144,7 +145,13 @@ def api_word_add():
 
     try:
         stems = data[0]['meta']['stems']
-        flash(stems)
+        flash(f"Huzzah! We've located {word} in the Merriam-Webster Dictionary!")
+        if word in crud.get_all_words():
+            flash('already in the DB')
+        else:
+            flash('Ooh! Not in the DB yet.')
+            crud.create_word(word, email)
+
     except:
         flash(f"{word} is not in the Merriam-Webster Dictionary")
     return redirect('/homepage')

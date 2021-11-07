@@ -68,6 +68,14 @@ def get_unique_second_word():
     available_words = db.session.query(Word).filter(Word.word != get_random_word())
     return random.choice((available_words.all())).word
 
+def get_all_words():
+
+    all_words = Word.query.all()
+    words_list = []
+    for word in all_words:
+        words_list.append(word.word)
+    return words_list
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

@@ -1,4 +1,4 @@
-from flask import (Flask, render_template, request, session, flash, redirect)
+from flask import (Flask, render_template, request, session, flash, redirect, jsonify)
 from model import connect_to_db
 from pprint import pformat
 import os
@@ -98,7 +98,16 @@ def store_nugget():
 def homepage():
 
     writer = session["first_name"]
+    email = session["user_email"]
+    nuggets = crud.get_nuggets_by_email(email)
+
     return render_template('homepage.html', writer=writer)
+
+@app.route('/homepage.json')
+def nugget_info():
+    email = session["user_email"]
+    nuggets = crud.get_nuggets_by_email(email)
+    return jsonify(nuggets)
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

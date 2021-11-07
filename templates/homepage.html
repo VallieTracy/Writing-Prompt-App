@@ -4,17 +4,16 @@
 {% block content %}
     <h6>{{ writer }}</h6>
     <h1>Show me my:</h1>
-    <!-- <button onclick="Function()">Nuggets</button>
-    <p id="nuggets"></p>
-    <script>
-    function Function() {
-    document.getElementById("nuggets").innerHTML = "Hard-coded Nugget #1";
-    }
-    </script> -->
-    <!-- <button onclick="Function()">Nuggets</button>
-    <p id="nuggets"></p> -->
-    <button id='get-nuggets'>Nuggets</button>
+    
+    <a class='btn border border-dark' id='get-nuggets' role='button'>Nuggets</a>
+    <p id="no-nuggets"></p>
     <ol id="nuggets"></ol>
+
+    <h2>Would you like to try adding a word to the database for everyone to use?</h2>
+    <form action='/add-word' method='post'>
+        <input type='text' name='word'>
+        <input type='submit' value='Submit my Word!'>
+    </form>
      
 {% endblock %}
 

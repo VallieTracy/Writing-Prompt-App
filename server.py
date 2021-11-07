@@ -6,9 +6,10 @@ import requests
 import crud
 from jinja2 import StrictUndefined
 import writing_functions
+import data.prompts as dp
 
 app = Flask(__name__)
-app.secret_key = 'SECRETSECRETSECRET'
+app.secret_key = 'cookiescookiescookiesyumyumyummy'
 
 API_KEY = os.environ['DICTIONARY_KEY']
 
@@ -96,7 +97,7 @@ def store_nugget():
 
 @app.route('/homepage')
 def homepage():
-
+    
     writer = session["first_name"]
     email = session["user_email"]
     nuggets = crud.get_nuggets_by_email(email)
@@ -109,32 +110,13 @@ def nugget_info():
     nuggets = crud.get_nuggets_by_email(email)
     return jsonify(nuggets)
 
-if __name__ == "__main__":
-    # DebugToolbarExtension(app)
-    connect_to_db(app)
-    app.run(host="0.0.0.0", debug=True)
+@app.route('/data/prompts.json')
+def prompts_json():
+    return jsonify(dp.prompts_dicts)
 
-
-
-
-
-
-
-
-
-# *****************************************************************************************
-# VERSION 2.0
-# API Call to Merriam Webster
-# In order to run, need to write 'source secrets.sh' into terminal first!
 @app.route('/api-call')
 def api_call():
     """Testing working with Merriam's Dictionary API"""
-
-    # keyword = request.args.get('keyword', '')
-    # postalcode = request.args.get('zipcode', '')
-    # radius = request.args.get('radius', '')
-    # unit = request.args.get('unit', '')
-    # sort = request.args.get('sort', '')
 
     base_url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'
     word = 'voluminous'
@@ -150,12 +132,71 @@ def api_call():
     return render_template('search.html',
                            pformat=pformat,
                            data_id=data_id)
-# *****************************************************************************************
+
+@app.route('/add-word', methods=['POST'])
+def api_word_add():
+    word = request.form.get('word')
+    base_url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'
+    url = base_url + word
+    payload = {'key': API_KEY}
+    response = requests.get(url, params=payload)
+    data = response.json()
+
+    try:
+        stems = data[0]['meta']['stems']
+        flash(stems)
+    except:
+        flash(f"{word} is not in the Merriam-Webster Dictionary")
+    return redirect('/homepage')
+
+
+if __name__ == "__main__":
+    # DebugToolbarExtension(app)
+    connect_to_db(app)
+    app.run(host="0.0.0.0", debug=True)
 
 
 
 
 
-# if __name__ == '__main__':
-#     app.debug = True
-#     app.run(host='0.0.0.0')
+
+
+
+
+# # *****************************************************************************************
+# # VERSION 2.0
+# # API Call to Merriam Webster
+# # In order to run, need to write 'source secrets.sh' into terminal first!
+# @app.route('/api-call')
+# def api_call():
+#     """Testing working with Merriam's Dictionary API"""
+
+#     # keyword = request.args.get('keyword', '')
+#     # postalcode = request.args.get('zipcode', '')
+#     # radius = request.args.get('radius', '')
+#     # unit = request.args.get('unit', '')
+#     # sort = request.args.get('sort', '')
+
+#     base_url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'
+#     word = 'voluminous'
+#     url = base_url + word
+#     payload = {'key': API_KEY}
+
+#     response = requests.get(url, params=payload)
+
+#     data = response.json()
+#     data_id = data[0]['meta']['stems']
+#     # events = data['_embedded']['events']
+
+#     return render_template('search.html',
+#                            pformat=pformat,
+#                            data_id=data_id)
+# # *****************************************************************************************
+
+
+
+
+
+# # if __name__ == '__main__':
+# #     app.debug = True
+# #     app.run(host='0.0.0.0')

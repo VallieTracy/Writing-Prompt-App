@@ -25,7 +25,6 @@ const wordRetrieve = () => {
         console.log(response);
         console.log(response.length);
         for (let i = 0; i < response.length; i += 1) {
-            console.log(response[i]);
             $('#words').append(`<li>${response[i]}</li>`);
         }
         if (response.length == 0) {

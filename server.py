@@ -147,13 +147,14 @@ def api_word_add():
         stems = data[0]['meta']['stems']
         flash(f"Huzzah! We've located {word} in the Merriam-Webster Dictionary!")
         if word in crud.get_all_words():
-            flash('already in the DB')
+            flash("BUT it's already in the DB so it's not being added.")
+            flash(stems)
         else:
-            flash('Ooh! Not in the DB yet.')
+            flash("AND it's not in the DB so we've added it for you!")
             crud.create_word(word, email)
 
     except:
-        flash(f"{word} is not in the Merriam-Webster Dictionary")
+        flash(f"{word} is not in the Merriam-Webster Dictionary.")
     return redirect('/homepage')
 
 @app.route('/homepage-words.json')

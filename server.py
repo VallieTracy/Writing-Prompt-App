@@ -54,20 +54,31 @@ def log_in():
         return redirect('/')
   
     else:
+        """get random writing dict and store in session"""
         writing_dictionary = writing_functions.get_random_dictionary()
-        prompt_name = writing_dictionary['name']
-        writing_directions = writing_dictionary['directions']
-        prompt = writing_dictionary['prompt']
-        random_word_qty = writing_dictionary['random_word_qty']
-        
-        session["prompt_name"] = prompt_name
-        session["prompt"] = prompt
-        session["random_word_qty"] = random_word_qty
+        session["writing_dictionary"] = writing_dictionary 
+
+        """store user object in session"""
         session["user_email"] = user.email
         session["first_name"] = user.first_name
-        welcome = f"Welcome back {user.first_name}!"
-        return render_template('writing_directions.html', welcome_message=welcome, writing_directions=writing_directions,name=prompt_name)
+
+        """Variables for writing_directions.html"""
+        writing_directions = writing_dictionary['directions']
+        prompt_name = writing_dictionary['name']
         
+        first_name = user.first_name        
+        welcome = f"Welcome back {first_name}!"
+
+        return render_template('writing_directions.html', writing_directions=writing_directions, prompt_name=prompt_name, welcome_message=welcome)
+
+@app.route('/new-prompt')  
+def new_directive():
+    writing_dictionary = writing_functions.get_random_dictionary()
+    session["writing_dictionary"] = writing_dictionary
+    
+
+    welcome = f"Here's a new writing directive for you {user.first_name}..."
+    render_template('writing_directions.html', welcome_message=welcome, writing_directions=writing_directions,name=prompt_name)    
 
 
 # Route that directs to writing_prompt.html
@@ -99,7 +110,8 @@ def store_nugget():
 def homepage():
     
     writer = session["first_name"]
-    email = session["user_email"]
+    email = session("user_email")
+    # email = session["user"].email
     nuggets = crud.get_nuggets_by_email(email)
 
     return render_template('homepage.html', writer=writer)

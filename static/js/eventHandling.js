@@ -17,7 +17,7 @@ const nuggetRetrieve = () => {
 $('#get-nuggets').on('click', () => {
     console.log('the button was pressed');
     nuggetRetrieve();
-    $('#get-nuggets').off();    
+    // $('#get-nuggets').off();    
 });
 
 const wordRetrieve = () => {

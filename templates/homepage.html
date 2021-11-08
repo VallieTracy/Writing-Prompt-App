@@ -15,11 +15,13 @@
 
     <h2>Would you like to try adding a word to the database for everyone to use?</h2>
     <form action='/add-word' method='post'>
-        <input type='text' name='word'>
+        <input type='text' name='word' required> 
         <input type='submit' value='Submit my Word!'>
     </form>
 
-    <a class='btn border border-dark' role='button' href='/'>Write Again!</a>
+    <a class='btn border border-dark' role='button' href='/new-prompt'>Write Again!</a>
+    <a class='btn border border-dark' role='button' href='/logout'>Log Out</a>
+    
      
 {% endblock %}
 

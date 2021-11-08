@@ -20,6 +20,26 @@ $('#get-nuggets').on('click', () => {
     $('#get-nuggets').off();    
 });
 
+const wordRetrieve = () => {
+    $.get('/homepage-words.json', response => {
+        console.log(response);
+        console.log(response.length);
+        for (let i = 0; i < response.length; i += 1) {
+            console.log(response[i]);
+            $('#words').append(`<li>${response[i]}</li>`);
+        }
+        if (response.length == 0) {
+            $('#no-words').html("You haven't added any words yet!");
+        }
+    });
+}
+
+$('#get-words').on('click', () => {
+    console.log('word button clicked');
+    wordRetrieve();
+    $('#get-words').off();
+})
+
 
 
 

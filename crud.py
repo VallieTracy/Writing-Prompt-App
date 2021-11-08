@@ -57,6 +57,12 @@ def get_nuggets_by_email(email):
     
     return nuggets
 
+def get_words_by_email(email):
+    words = []
+    for word in (Word.query.filter_by(email=email).all()):
+        words.append(word.word)
+    return words
+
 def get_random_word():
     """Select random word from 'words' table"""
 

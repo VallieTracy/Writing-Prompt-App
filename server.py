@@ -114,24 +114,24 @@ def nugget_info():
 def prompts_json():
     return jsonify(dp.prompts_dicts)
 
-@app.route('/api-call')
-def api_call():
-    """Testing working with Merriam's Dictionary API"""
+# @app.route('/api-call')
+# def api_call():
+#     """Testing working with Merriam's Dictionary API"""
 
-    base_url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'
-    word = 'voluminous'
-    url = base_url + word
-    payload = {'key': API_KEY}
+#     base_url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'
+#     word = 'voluminous'
+#     url = base_url + word
+#     payload = {'key': API_KEY}
 
-    response = requests.get(url, params=payload)
+#     response = requests.get(url, params=payload)
 
-    data = response.json()
-    data_id = data[0]['meta']['stems']
-    # events = data['_embedded']['events']
+#     data = response.json()
+#     data_id = data[0]['meta']['stems']
+#     # events = data['_embedded']['events']
 
-    return render_template('search.html',
-                           pformat=pformat,
-                           data_id=data_id)
+#     return render_template('search.html',
+#                            pformat=pformat,
+#                            data_id=data_id)
 
 @app.route('/add-word', methods=['POST'])
 def api_word_add():
@@ -156,6 +156,11 @@ def api_word_add():
         flash(f"{word} is not in the Merriam-Webster Dictionary")
     return redirect('/homepage')
 
+@app.route('/homepage-words.json')
+def word_info():
+    email = session["user_email"]
+    words = crud.get_words_by_email(email)
+    return jsonify(words)
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

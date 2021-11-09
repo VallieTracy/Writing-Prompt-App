@@ -47,7 +47,7 @@ def register_user():
         return redirect('/')
 
 
-@app.route('/log-in', methods=['POST'])
+@app.route('/start', methods=['POST'])
 def log_in():
     """Defines what happens when the user logs in"""
     

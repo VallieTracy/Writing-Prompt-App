@@ -8,7 +8,6 @@ const nuggetRetrieve = () => {
             $('#nuggets').append(`<li>${response[i]}</li>`);
         }
         if (response.length == 0) {
-            // alert("You haven't stored any nuggets yet!");
             $('#no-nuggets').html("You haven't added any nuggets yet!");
         }
     });
@@ -17,7 +16,7 @@ const nuggetRetrieve = () => {
 $('#get-nuggets').on('click', () => {
     console.log('the button was pressed');
     nuggetRetrieve();
-    // $('#get-nuggets').off();    
+    $('#get-nuggets').off();    
 });
 
 const wordRetrieve = () => {
@@ -38,6 +37,22 @@ $('#get-words').on('click', () => {
     wordRetrieve();
     $('#get-words').off();
 })
+
+// hides the nugget element on writing_prompt.html
+$('#hidden-element').hide()
+
+// Shows the element after the button is clicked
+// My goal is to show the element after timer runs out!
+const unhideTheDiv = () => {
+    $('#hidden-element').show();    
+}
+
+$('#unhide').on('click', () => {
+    console.log('gate keeper button was clicked!');
+    (unhideTheDiv());
+})
+
+
 
 
 

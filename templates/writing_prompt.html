@@ -13,12 +13,18 @@
     <p>{{ word1 }}</p>
     {% endif %}
     
-    <h2>Would you like to store any nuggets?</h2>
-    <form action='/store-nugget' method='post'> 
-        <textarea name='nugget'></textarea>
-        <input type='submit' value='Submit'>
-    </form>
-    <a class='btn border border-dark' id="no-nugget-click" role='button' href = '/homepage'>Nope!</a>
+    <div id='hidden-element'>
+        <h2 class='hidden-div'>Would you like to store any nuggets?</h2>
+        <form action='/store-nugget' method='post'> 
+            <textarea name='nugget'></textarea>
+            <input type='submit' value='Submit'>
+        </form>
+        <a class='btn border border-dark' id="no-nugget-click" role='button' href = '/homepage'>Nope!</a>
+    </div>
+    <a class='btn border border-dark' id='unhide' role='button'>onClick</a>
     
- 
-{% endblock %}  
+{% endblock %} 
+
+{% block script %}
+    <script src="/static/js/eventHandling.js"></script>
+{% endblock %}

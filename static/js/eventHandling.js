@@ -38,6 +38,7 @@ $('#get-words').on('click', () => {
     $('#get-words').off();
 })
 
+// HIDDEN FOR NOW FOR PURPOSES OF MVP
 // hides the nugget element on writing_prompt.html
 $('#hidden-element').hide()
 

@@ -2,16 +2,15 @@
 {% block title %}PROMPT{% endblock %}
 
 {% block content %}
-    <h6>Writing Prompt:</h6>
-    <h2>{{  name  }}</h2>
+    <h1>{{  name  }}</h1>
     
+    <h4>{{ prompt.upper() }}</h4>
     {% if word_qty == 2 %}
-    <p>{{ prompt }}</p>
-    <p>{{ word1 }} and {{ word2 }}</p>
+    <p><b>{{ word1 }}</b> and <b>{{ word2 }}</b></p>
     {% else %}
-    <p>{{ prompt }}</p>
     <p>{{ word1 }}</p>
     {% endif %}
+    <p>{{ message }}</p>
     
     <div id='hidden-element'>
         <h2 class='hidden-div'>Would you like to store any nuggets?</h2>
@@ -21,6 +20,7 @@
         </form>
         <a class='btn border border-dark' id="no-nugget-click" role='button' href = '/homepage'>Nope!</a>
     </div>
+    <!-- HIDDEN FOR NOW FOR PURPOSES OF MVP -->
     <a class='btn border border-dark' id='unhide' role='button'>onClick</a>
     
 {% endblock %} 

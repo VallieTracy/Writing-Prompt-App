@@ -66,11 +66,12 @@ def log_in():
         session["first_name"] = user.first_name
 
         writing_directions = writing_dictionary['directions']
-        prompt_name = writing_dictionary['name']    
+        prompt_name = writing_dictionary['name']
+        img_src = writing_dictionary['img_path']    
         first_name = user.first_name        
         welcome = f"Welcome back {first_name}!"
 
-        return render_template('writing_directions.html', writing_directions=writing_directions, prompt_name=prompt_name, welcome_message=welcome)
+        return render_template('writing_directions.html', writing_directions=writing_directions, prompt_name=prompt_name, welcome_message=welcome, img_src=img_src)
 
    
 @app.route('/writing-prompt')
@@ -86,8 +87,10 @@ def writing_prompt():
     random_word1 = crud.get_random_word()
     random_word2 = crud.get_unique_second_word()
 
+    first_name = session["first_name"]
+    message = f"The timer has started, so get to writing {first_name}!"
     
-    return render_template('writing_prompt.html', word1=random_word1, word2=random_word2, name=directive_name, prompt=the_prompt, word_qty=word_qty)
+    return render_template('writing_prompt.html', message=message, word1=random_word1, word2=random_word2, name=directive_name, prompt=the_prompt, word_qty=word_qty)
 
 
 @app.route('/store-nugget', methods=['POST'])
@@ -140,7 +143,6 @@ def api_word_add():
         flash(f"Huzzah! We've located {word} in the Merriam-Webster Dictionary!")
         if word in crud.get_all_words():
             flash("BUT it's already in the DB so it's not being added.")
-            flash(stems)
         else:
             flash("AND it's not in the DB so we've added it for you!")
             crud.create_word(word, email)
@@ -164,12 +166,13 @@ def new_directive():
     session["writing_dictionary"] = writing_dictionary
     writing_directions = writing_dictionary['directions']
     prompt_name = writing_dictionary['name']
+    img_src = writing_dictionary['img_path'] 
     
     writer = session["first_name"]
     email = session["user_email"]
 
     welcome = f"Here's a new writing directive for you {writer}..."
-    return render_template('writing_directions.html', writing_directions=writing_directions, prompt_name=prompt_name, welcome_message=welcome) 
+    return render_template('writing_directions.html', writing_directions=writing_directions, prompt_name=prompt_name, welcome_message=welcome, img_src=img_src) 
 
 @app.route('/logout')
 def delete_sessions():

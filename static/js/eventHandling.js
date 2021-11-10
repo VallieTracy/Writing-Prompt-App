@@ -45,13 +45,13 @@ $('#hidden-element').hide()
 
 const unhideTheDiv = () => {
     $('#hidden-element').show(); 
-    // const mySound = document.getElementById("sound");
-    // mySound.play();   
+    const mySound = document.getElementById("sound");
+    mySound.play();   
 }
 
 // Determining the time after which unhideTheDiv will be called
 setTimeout(unhideTheDiv, 2000)
-console.log(`testing`);
+
 
 // document.querySelector('#start-autoplay').addEventListener('click', function() {
 //     console.log(`first log`);

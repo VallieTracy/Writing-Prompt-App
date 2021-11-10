@@ -38,20 +38,19 @@ $('#get-words').on('click', () => {
     $('#get-words').off();
 })
 
-// HIDDEN FOR NOW FOR PURPOSES OF MVP
-// hides the nugget element on writing_prompt.html
+// Hides the nugget element on writing_prompt.html from the get-go
 $('#hidden-element').hide()
 
-// Shows the element after the button is clicked
-// My goal is to show the element after timer runs out!
+// Function that will show the hidden element
 const unhideTheDiv = () => {
     $('#hidden-element').show();    
 }
 
-$('#unhide').on('click', () => {
-    console.log('gate keeper button was clicked!');
-    (unhideTheDiv());
-})
+// Determining the time after which unhideTheDiv will be called
+setTimeout(unhideTheDiv, 2000)
+
+
+      
 
 
 

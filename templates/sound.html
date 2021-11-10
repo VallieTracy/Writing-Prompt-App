@@ -1,0 +1,35 @@
+<!DOCTYPE html>   
+<html lang="en" dir="ltr">   
+<head>   
+<meta charset="utf-8">   
+<title>Making Sound</title> 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- My CSS -->
+<link rel="stylesheet" href="../static/css/style.css">  
+</head>   
+
+<body>
+    <p>i hope text shows up right below this.</p>
+    <p class='sound'></p>
+    <audio id='sound'>   
+        <source src="/static/Correct Answer.mp3" />   
+    </audio> 
+    <h1>Who played the character of Harry Potter in the movie series?</h1>   
+    <button>George Clooney</button>   
+    <button id="correct">Daniel Radcliff</button>   
+    <button>George Peppard</button>   
+    <button>George Burns</button> 
+    <script>
+        const mySound = document.getElementById("sound");   
+        const correctButton = document.getElementById("correct");   
+        correctButton.addEventListener("click", function(){ mySound.play(); }); 
+    </script>  
+    <!-- <script src="/static/js/eventHandling.js"></script>   -->
+</body>   
+    
+
+
+</html>

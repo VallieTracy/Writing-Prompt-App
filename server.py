@@ -183,7 +183,16 @@ def delete_sessions():
         session.pop(item, None)
     flash("You've been signed out.")
     return redirect('/')
-#...
+
+@app.route('/sound')
+def sound():
+
+    return render_template('sound.html')
+
+@app.route('/sound-path')
+def path():
+    sound_path = 'Correct Answer.mp3'
+    return sound_path
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)

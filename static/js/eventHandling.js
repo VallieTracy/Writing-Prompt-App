@@ -49,6 +49,30 @@ const unhideTheDiv = () => {
 // Determining the time after which unhideTheDiv will be called
 setTimeout(unhideTheDiv, 2000)
 
+// const mySound = document.getElementById("sound"); 
+// const correctButton = document.getElementById("correct");
+// correctButton.addEventListener("click", function(){ 
+//     console.log(`event listener happening`);
+//     mySound.play(); }); 
+
+const correctButton = $('#correct');
+const getSound = () => {
+    $.get('/sound-path', response => {
+        console.log(response);
+        $('.sound').text('sound!');
+        $('#sound').add('src', response);
+    });
+}
+
+
+
+correctButton.on('click', () => {
+    getSound();
+})
+
+
+
+
 
       
 

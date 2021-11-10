@@ -42,33 +42,30 @@ $('#get-words').on('click', () => {
 $('#hidden-element').hide()
 
 // Function that will show the hidden element
+
 const unhideTheDiv = () => {
-    $('#hidden-element').show();    
+    $('#hidden-element').show(); 
+    // const mySound = document.getElementById("sound");
+    // mySound.play();   
 }
 
 // Determining the time after which unhideTheDiv will be called
 setTimeout(unhideTheDiv, 2000)
+console.log(`testing`);
 
-// const mySound = document.getElementById("sound"); 
-// const correctButton = document.getElementById("correct");
-// correctButton.addEventListener("click", function(){ 
-//     console.log(`event listener happening`);
-//     mySound.play(); }); 
-
-const correctButton = $('#correct');
-const getSound = () => {
-    $.get('/sound-path', response => {
-        console.log(response);
-        $('.sound').text('sound!');
-        $('#sound').add('src', response);
-    });
-}
+// document.querySelector('#start-autoplay').addEventListener('click', function() {
+//     console.log(`first log`);
+//     context.resume().then(() => {
+  
+//       console.log('Playback resumed successfully');
+  
+//     });
+  
+//   });
 
 
 
-correctButton.on('click', () => {
-    getSound();
-})
+
 
 
 

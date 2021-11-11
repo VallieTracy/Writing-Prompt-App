@@ -41,8 +41,7 @@ $('#get-words').on('click', () => {
 // Hides the nugget element on writing_prompt.html from the get-go
 $('#hidden-element').hide()
 
-// Function that will show the hidden element
-
+// Function that will show the hidden element and call the sound file
 const unhideTheDiv = () => {
     $('#hidden-element').show(); 
     const mySound = document.getElementById("sound");
@@ -52,16 +51,19 @@ const unhideTheDiv = () => {
 // Determining the time after which unhideTheDiv will be called
 setTimeout(unhideTheDiv, 2000)
 
+// Another alarm is trigger (sound and text) using the setTimeout function
+const tooLong = () => {
+    console.log(`tooLong`);
+    document.getElementById ("sound").setAttribute ('src', '/static/t-rex-roar.mp3');
+    const mySound = document.getElementById("sound");    
+    mySound.play();
+    $('#too-long').text('Seriously, stop writing.');
+}
 
-// document.querySelector('#start-autoplay').addEventListener('click', function() {
-//     console.log(`first log`);
-//     context.resume().then(() => {
-  
-//       console.log('Playback resumed successfully');
-  
-//     });
-  
-//   });
+setTimeout(tooLong, 5000)
+
+
+
 
 
 

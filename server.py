@@ -83,14 +83,15 @@ def writing_prompt():
     directive_name = writing_dictionary['name']
     the_prompt = writing_dictionary['prompt']
     word_qty = writing_dictionary['random_word_qty']
-    
+
     random_word1 = crud.get_random_word()
     random_word2 = crud.get_unique_second_word()
 
     first_name = session["first_name"]
     message = f"The timer has started, so get to writing {first_name}!"
     
-    return render_template('writing_prompt.html', message=message, word1=random_word1, word2=random_word2, name=directive_name, prompt=the_prompt, word_qty=word_qty)
+    return render_template('writing_prompt.html', message=message, word1=random_word1, word2=random_word2, 
+    name=directive_name, prompt=the_prompt, word_qty=word_qty)
 
 
 @app.route('/store-nugget', methods=['POST'])

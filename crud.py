@@ -68,10 +68,10 @@ def get_random_word():
 
     return random.choice((Word.query.all())).word
 
-def get_unique_second_word():
+def get_unique_second_word(word):
     """Select a unique second random word"""
     
-    available_words = db.session.query(Word).filter(Word.word != get_random_word())
+    available_words = db.session.query(Word).filter(Word.word != word)
     return random.choice((available_words.all())).word
 
 def get_all_words():

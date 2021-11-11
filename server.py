@@ -85,7 +85,7 @@ def writing_prompt():
     word_qty = writing_dictionary['random_word_qty']
 
     random_word1 = crud.get_random_word()
-    random_word2 = crud.get_unique_second_word()
+    random_word2 = crud.get_unique_second_word(random_word1)
 
     first_name = session["first_name"]
     message = f"The timer has started, so get to writing {first_name}!"

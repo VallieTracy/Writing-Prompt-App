@@ -65,8 +65,13 @@ def log_in():
         session["user_email"] = user.email
         session["first_name"] = user.first_name
 
+        used_dicts = [writing_dictionary]
+        session['used_dicts'] = used_dicts
+
         writing_directions = writing_dictionary['directions']
         prompt_name = writing_dictionary['name']
+        
+        
         img_src = writing_dictionary['img_path']    
         first_name = user.first_name        
         welcome = f"Welcome back {first_name}!"
@@ -164,6 +169,15 @@ def new_directive():
     Then follows the same process of directions to the prompt itself and back to homepage"""
     
     writing_dictionary = writing_functions.get_random_dictionary()
+
+    while writing_dictionary in session['used_dicts']:
+        if len(session['used_dicts']) < 5:
+            writing_dictionary = writing_functions.get_random_dictionary()
+        else:
+            session['used_dicts'] = []
+
+    session['used_dicts'].append(writing_dictionary)
+
     session["writing_dictionary"] = writing_dictionary
     writing_directions = writing_dictionary['directions']
     prompt_name = writing_dictionary['name']

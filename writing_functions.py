@@ -11,12 +11,6 @@ def get_random_dictionary():
     prompts_list = dp.prompts_dicts
     return random.choice(prompts_list)
 
-# Right now not using this function
-def get_random_directions():
-    """returns the directions from a randomly selected dictionary"""
-
-    random_dict = get_random_dictionary()
-    return random_dict['directions']
 
 def prompt_sentence():
 
@@ -25,6 +19,7 @@ def prompt_sentence():
         return f'TWO words'
     else:
         return random_dict['prompt']
+
 
 
 

@@ -78,9 +78,12 @@ cleaned_list = remove_funky(funky_words)
 print(len(cleaned_list))
 print(cleaned_list)
 
+next_list = []
 for item in cleaned_list:
-    if item == '':
-        print('found empty item')
+    if item != '':
+        next_list.append(item)
+print(next_list)
+print(len(next_list))
 
 
 

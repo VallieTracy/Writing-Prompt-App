@@ -257,7 +257,7 @@ for word in final_list:
 
 
 result = final_list + endings
-test_list = ['BanaNA', 'FooT']
+test_list = ['BanaNA', 'FooT', 'ham']
 
 # Save list to words.json file
 out_file = open("words.json", "w")

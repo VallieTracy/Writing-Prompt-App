@@ -48,11 +48,6 @@ def get_nuggets_by_email(email):
 
     nuggets = []
     
-    # for nugget in (Nugget.query.options(db.joinedload('user'))
-    # .filter_by(email=email)
-    # .all()):
-    #     nuggets.append(nugget.nugget)
-    
     for nugget in (Nugget.query.filter_by(email=email).all()):
         nuggets.append(nugget.nugget)
     
@@ -89,14 +84,13 @@ def seed_words():
 
     word_data = [word.lower() for word in word_data]
     current_db = [word.lower() for word in get_all_words()]
-    combined_list = word_data + current_db
-    # print(f'the length of combined list is {len(combined_list)}')
-    unique_list = set(combined_list)
-    # print(f'the length of unique_list as set is {len(unique_list)}')
-    unique_list = list(unique_list)
-    # print(f'the length of unique list as list is {len(unique_list)}')
-    # return unique_list
-    return unique_list
+    
+    for word in word_data:
+        if word not in current_db:
+            create_word(word, email=None)
+            
+        
+            
 
 
 if __name__ == '__main__':

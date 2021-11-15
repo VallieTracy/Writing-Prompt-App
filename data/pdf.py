@@ -1,4 +1,5 @@
 import PyPDF2
+import json
 
 pdf_file = open('2500_writing_prompts.pdf', 'rb')
 pdf_reader = PyPDF2.PdfFileReader(pdf_file)
@@ -256,9 +257,12 @@ for word in final_list:
 
 
 result = final_list + endings
-print(len(result))
-# DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+test_list = ['BanaNA', 'FooT']
 
+# Save list to words.json file
+out_file = open("words.json", "w")
+json.dump(test_list, out_file)
+out_file.close() 
 
 
 

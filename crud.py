@@ -4,6 +4,7 @@ from model import db, User, Nugget, Word, connect_to_db
 
 import random
 import data.prompts as dp
+import json
 
 
 
@@ -81,6 +82,22 @@ def get_all_words():
     for word in all_words:
         words_list.append(word.word)
     return words_list
+
+def seed_words():
+    with open('data/words.json') as f:
+        word_data = json.loads(f.read())
+
+    word_data = [word.lower() for word in word_data]
+    current_db = [word.lower() for word in get_all_words()]
+    combined_list = word_data + current_db
+    # print(f'the length of combined list is {len(combined_list)}')
+    unique_list = set(combined_list)
+    # print(f'the length of unique_list as set is {len(unique_list)}')
+    unique_list = list(unique_list)
+    # print(f'the length of unique list as list is {len(unique_list)}')
+    # return unique_list
+    return unique_list
+
 
 if __name__ == '__main__':
     from server import app

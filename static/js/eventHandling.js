@@ -1,4 +1,3 @@
-
 const nuggetRetrieve = () => {
     $.get('/homepage.json', response => {
         console.log(response);
@@ -43,26 +42,61 @@ $('#hidden-element').hide()
 
 // Function that will show the hidden element and call the sound file
 const unhideTheDiv = () => {
-    $('#hidden-element').show(); 
-    const mySound = document.getElementById("sound");
-    mySound.play();   
+    $('#hidden-element').show();  
 }
 
-// Determining the time after which unhideTheDiv will be called
-setTimeout(unhideTheDiv, 2000)
+// Function that makes AJAX call to get a new word for the browser
+const newWords = () => {
+    $.get('/random-words.json', response => {
+        console.log(response);
+        console.log(`${response[0]}`)
+        $('.loop').text(`${response[0]}`);
+    });
+}
 
-// Another alarm is trigger (sound and text) using the setTimeout function
+// Function that will sound an alarm and call newWords function
+const playAlarm = () => {
+    const mySound = document.getElementById("sound");
+    mySound.play(); 
+    newWords(); 
+}
+
+// T-REX SOUND
 const tooLong = () => {
     console.log(`tooLong`);
     document.getElementById ("sound").setAttribute ('src', '/static/t-rex-roar.mp3');
     const mySound = document.getElementById("sound");    
     mySound.play();
-    $('#too-long').text('Seriously, stop writing.');
+    $('#too-long').text('All done!');
 }
 
-setTimeout(tooLong, 5000)
+// Setting interval of 5 seconds on playAlarm function
+var intervalID = setInterval(playAlarm, [5000]);
 
-// making a change for push purposes
+// Stopping the interval after 25 seconds
+// Playing t-rex sound and showing 'nugget element' 5 seconds after interval has ended
+setTimeout(() => { 
+    clearInterval(intervalID); 
+    setTimeout(tooLong, 5000); 
+    setTimeout(unhideTheDiv, 5000); }, 
+    25000);
+
+const getLoop = () => {
+    $.get('/data/prompts.json', response => {
+        
+        
+        let loopNumber = ((response[1]).loops);
+        // and pass loopNumber into playAlarm
+        // var intervalID = setInterval(playAlarm, [5000]);
+        console.log(`loopNumber is ${loopNumber}`);
+        return loopNumber;
+    
+    });
+}
+
+
+// playAlarm could take in param, loop number
+// might have to move getLoop above setTimeout
 
 
 

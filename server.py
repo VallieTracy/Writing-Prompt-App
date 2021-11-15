@@ -128,10 +128,15 @@ def nugget_info():
     nuggets = crud.get_nuggets_by_email(email)
     return jsonify(nuggets)
 
-# not using i don't think, but double check!
 @app.route('/data/prompts.json')
 def prompts_json():
     return jsonify(dp.prompts_dicts)
+
+@app.route('/random-words.json')
+def get_words():
+    random_word1 = crud.get_random_word()
+    random_word2 = crud.get_unique_second_word(random_word1)
+    return jsonify(random_word1, random_word2)
 
 @app.route('/add-word', methods=['POST'])
 def api_word_add():

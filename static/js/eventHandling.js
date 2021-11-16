@@ -55,11 +55,10 @@ const newWords = () => {
 }
 
 // Function that will sound an alarm and call newWords function
-const playAlarm = aNum => {
+const playAlarm = () => {
     const mySound = document.getElementById("sound");
     mySound.play(); 
     newWords(); 
-    console.log(`aNum-${aNum} is printing from inside the playAlarm function!`);
 }
 
 // T-REX SOUND
@@ -71,40 +70,36 @@ const tooLong = () => {
     $('#too-long').text('All done!');
 }
 
-// Setting interval of 5 seconds on playAlarm function
-var intervalID = setInterval(playAlarm(4), [4000]);
-
+// Function that uses AJAX to access writing dictionaries
 const getLoop = () => {
     $.get('/data/prompts.json', response => {
         
-        
-        let loopNumber = ((response[4]).loops);
-        console.log(`just above playAlarm(2)`)
-        playAlarm(loopNumber);
-        console.log(`just below playAlarm(2)`)
-        // and pass loopNumber into playAlarm
-        var intervalID = setInterval(playAlarm, [4000]);
-        console.log(`loopNumber is ${loopNumber}`);
+        // Hard-coded right now
+        let loopNumber = ((response[0]).loops);
+        let timeOfLoop = ((response[0]).time);
+        console.log(`loopNumber is ${loopNumber} and timeOfLoop is ${timeOfLoop}`);
 
+        // using setTimeout on playAlarm so that it doesn't sound immediately 
+        // timeOfLoop is an integer, writen as if seconds (will be something like 90 sec or 2 minutes)
+        setTimeout(playAlarm, timeOfLoop*1000);
+
+        // Sets the interval for how frequently the alarm is played
+        var intervalID = setInterval(playAlarm, [timeOfLoop*1000]);
+        
+        // stops the interval, determined by loopNumber*timeOfLoop*1000
+        // Show hidden html element and play t-rex after the interval has been cleared
         setTimeout(() => { 
             clearInterval(intervalID); 
-            setTimeout(tooLong, 4000); 
-            setTimeout(unhideTheDiv, 4000); }, 
-            12000);    
+            setTimeout(tooLong, timeOfLoop*1000); 
+            setTimeout(unhideTheDiv, timeOfLoop*1000); }, 
+            (loopNumber*1000*timeOfLoop));    
     });
 }
-
-// Stopping the interval after 25 seconds
-// Playing t-rex sound and showing 'nugget element' 5 seconds after interval has ended
-
-
-
 
 getLoop();
 
 
-// playAlarm could take in param, loop number
-// might have to move getLoop above setTimeout
+
 
 
 

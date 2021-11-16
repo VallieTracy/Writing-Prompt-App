@@ -75,8 +75,10 @@ const getLoop = () => {
     $.get('/data/prompts.json', response => {
         
         // Hard-coded right now
-        let loopNumber = ((response[0]).loops);
-        let timeOfLoop = ((response[0]).time);
+        // let loopNumber = ((response[0]).loops);
+        // let timeOfLoop = ((response[0]).time);
+        let loopNumber = (response.loops);
+        let timeOfLoop = (response.time);
         console.log(`loopNumber is ${loopNumber} and timeOfLoop is ${timeOfLoop}`);
 
         // using setTimeout on playAlarm so that it doesn't sound immediately 

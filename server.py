@@ -130,7 +130,11 @@ def nugget_info():
 
 @app.route('/data/prompts.json')
 def prompts_json():
-    return jsonify(dp.prompts_dicts)
+    """Returns the random dictionary in json format"""
+    
+    writing_dictionary = session["writing_dictionary"]
+    return jsonify(writing_dictionary)
+    
 
 @app.route('/random-words.json')
 def get_words():

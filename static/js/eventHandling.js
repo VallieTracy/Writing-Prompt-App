@@ -55,10 +55,11 @@ const newWords = () => {
 }
 
 // Function that will sound an alarm and call newWords function
-const playAlarm = () => {
+const playAlarm = aNum => {
     const mySound = document.getElementById("sound");
     mySound.play(); 
     newWords(); 
+    console.log(`aNum-${aNum} is printing from inside the playAlarm function!`);
 }
 
 // T-REX SOUND
@@ -71,49 +72,39 @@ const tooLong = () => {
 }
 
 // Setting interval of 5 seconds on playAlarm function
-var intervalID = setInterval(playAlarm, [5000]);
-
-// Stopping the interval after 25 seconds
-// Playing t-rex sound and showing 'nugget element' 5 seconds after interval has ended
-setTimeout(() => { 
-    clearInterval(intervalID); 
-    setTimeout(tooLong, 5000); 
-    setTimeout(unhideTheDiv, 5000); }, 
-    25000);
+var intervalID = setInterval(playAlarm(4), [4000]);
 
 const getLoop = () => {
     $.get('/data/prompts.json', response => {
         
         
-        let loopNumber = ((response[1]).loops);
+        let loopNumber = ((response[4]).loops);
+        console.log(`just above playAlarm(2)`)
+        playAlarm(loopNumber);
+        console.log(`just below playAlarm(2)`)
         // and pass loopNumber into playAlarm
-        // var intervalID = setInterval(playAlarm, [5000]);
+        var intervalID = setInterval(playAlarm, [4000]);
         console.log(`loopNumber is ${loopNumber}`);
-        return loopNumber;
-    
+
+        setTimeout(() => { 
+            clearInterval(intervalID); 
+            setTimeout(tooLong, 4000); 
+            setTimeout(unhideTheDiv, 4000); }, 
+            12000);    
     });
 }
+
+// Stopping the interval after 25 seconds
+// Playing t-rex sound and showing 'nugget element' 5 seconds after interval has ended
+
+
+
+
+getLoop();
 
 
 // playAlarm could take in param, loop number
 // might have to move getLoop above setTimeout
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
 
 
 

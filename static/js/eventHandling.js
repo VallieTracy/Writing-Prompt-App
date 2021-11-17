@@ -73,30 +73,51 @@ const tooLong = () => {
 // Function that uses AJAX to access writing dictionaries
 const getLoop = () => {
     $.get('/data/prompts.json', response => {
-        
-        // Hard-coded right now
-        // let loopNumber = ((response[0]).loops);
-        // let timeOfLoop = ((response[0]).time);
+    
         let loopNumber = (response.loops);
         let timeOfLoop = (response.time);
         console.log(`loopNumber is ${loopNumber} and timeOfLoop is ${timeOfLoop}`);
+        let promptName = (response.name);
+        if (promptName !== 'Single Words with Multiple Meanings') {
 
-        // using setTimeout on playAlarm so that it doesn't sound immediately 
-        // timeOfLoop is an integer, writen as if seconds (will be something like 90 sec or 2 minutes)
-        setTimeout(playAlarm, timeOfLoop*1000);
+            // using setTimeout on playAlarm so that it doesn't sound immediately 
+            // timeOfLoop is an integer, writen as if seconds (will be something like 90 sec or 2 minutes)
+            setTimeout(playAlarm, timeOfLoop*1000);
 
-        // Sets the interval for how frequently the alarm is played
-        var intervalID = setInterval(playAlarm, [timeOfLoop*1000]);
+            // Sets the interval for how frequently the alarm is played
+            var intervalID = setInterval(playAlarm, [timeOfLoop*1000]);
+            
+            // stops the interval, determined by loopNumber*timeOfLoop*1000
+            // Show hidden html element and play t-rex after the interval has been cleared
+            setTimeout(() => { 
+                clearInterval(intervalID); 
+                setTimeout(tooLong, timeOfLoop*1000); 
+                setTimeout(unhideTheDiv, timeOfLoop*1000); }, 
+                (loopNumber*1000*timeOfLoop));    }
+        else {
+            console.log(`this is the loop zero.`);
+            const zeroAlarm = () => {
+                const mySound = document.getElementById("sound");
+                mySound.play();  
+            } // end of zeroAlarm function
+
+            setTimeout(zeroAlarm, timeOfLoop*1000);
+            var intervalID = setInterval(zeroAlarm, [timeOfLoop*1000]);
+            setTimeout(() => {
+                clearInterval(intervalID);
+                setTimeout(tooLong, timeOfLoop*1000);
+                setTimeout(unhideTheDiv, timeOfLoop);
+            }, (loopNumber*1000*timeOfLoop));
+
+
+
+        } // end of else statement
+            
         
-        // stops the interval, determined by loopNumber*timeOfLoop*1000
-        // Show hidden html element and play t-rex after the interval has been cleared
-        setTimeout(() => { 
-            clearInterval(intervalID); 
-            setTimeout(tooLong, timeOfLoop*1000); 
-            setTimeout(unhideTheDiv, timeOfLoop*1000); }, 
-            (loopNumber*1000*timeOfLoop));    
-    });
-}
+        })  // line 75 paren next to get and bracket after response
+        }  // line 74
+        
+
 
 getLoop();
 

@@ -69,6 +69,7 @@ def get_unique_second_word(word):
     
     available_words = db.session.query(Word).filter(Word.word != word)
     return random.choice((available_words.all())).word
+    #Word.word not in used_words - put sqlalchemy syntax, something that isn't in a list
 
 def get_all_words():
 

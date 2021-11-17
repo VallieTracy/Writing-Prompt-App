@@ -20,7 +20,29 @@
     </form>
 
     <a class='btn border border-dark' role='button' href='/new-prompt'>Write Again!</a>
+    <div>
+        <label for='time'>How long would you like to set the timer for?</label>
+        <select name='time'>
+            <option value='4' type='number' selected>4 min</option>
+            <option value='5' type='number'>5 min</option>
+            <option value='6' type='number'>6 min</option>
+            <option value='7' type='number'>7 min</option>
+            <option value='8' type='number'>8 min</option>
+            <option value='9' type='number'>9 min</option>
+            <option value='10' type='number'>10 min</option>
+            <option value='11' type='number'>11 min</option>
+            <option value='12' type='number'>12 min</option>
+        </select>
+        <button id='start-timer'>Start Timer</button>
+    </div>
+    
+    <p id='timer-started'></p>
     <a class='btn border border-dark' role='button' href='/logout'>Log Out</a>
+
+    <audio id='sound-homepage'>   
+        <source id='sound-src' src="/static/Correct Answer.mp3" />   
+    </audio> 
+    
     
      
 {% endblock %}

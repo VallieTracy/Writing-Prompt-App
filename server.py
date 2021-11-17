@@ -91,6 +91,7 @@ def writing_prompt():
 
     random_word1 = crud.get_random_word()
     random_word2 = crud.get_unique_second_word(random_word1)
+    # instead of passing in random_word1 I would pass in a list of used words from the session
 
     first_name = session["first_name"]
     message = f"The timer has started, so get to writing {first_name}!"
@@ -197,6 +198,7 @@ def new_directive():
 
     welcome = f"Here's a new writing directive for you {writer}..."
     return render_template('writing_directions.html', writing_directions=writing_directions, prompt_name=prompt_name, welcome_message=welcome, img_src=img_src) 
+
 
 @app.route('/logout')
 def delete_sessions():

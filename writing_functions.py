@@ -10,6 +10,7 @@ def get_random_dictionary():
 
     prompts_list = dp.prompts_dicts
     return random.choice(prompts_list)
+    # pass used_dicts into this function with a default value of empty
 
 
 def prompt_sentence():

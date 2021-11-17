@@ -100,6 +100,35 @@ const getLoop = () => {
 
 getLoop();
 
+// Accessing dropdown menu on the homepage
+const select = document.querySelector("select");
+// Getting the selected value and returning it as a number
+const selectedChoice = Number(select.value);
+console.log(`${selectedChoice} is the selected choice`);
+console.log(typeof selectedChoice);
+// Listening for the choice to be changed
+select.addEventListener('change', (event) => {
+    const {
+        value,
+        text
+    } = event.target.options[event.target.selectedIndex]
+console.log(value, text)
+}) 
+
+// Alarm specific to the homepage
+const thisAlarm = () => {
+    const mySound = document.getElementById("sound-homepage");
+    mySound.play();  
+}
+
+// When button is clicked, adds text and sets timer
+$('#start-timer').on('click', () => {
+    console.log('the timer button was pressed');
+    $('#timer-started').html('Timer started'); 
+    setTimeout(thisAlarm, selectedChoice*2000); 
+});
+
+
 
 
 

@@ -102,10 +102,14 @@ getLoop();
 
 // Accessing dropdown menu on the homepage
 const select = document.querySelector("select");
+
 // Getting the selected value and returning it as a number
 const selectedChoice = Number(select.value);
+
+// Two prints statements to check that it's grabbing what I think it is
 console.log(`${selectedChoice} is the selected choice`);
 console.log(typeof selectedChoice);
+
 // Listening for the choice to be changed
 select.addEventListener('change', (event) => {
     const {
@@ -121,12 +125,23 @@ const thisAlarm = () => {
     mySound.play();  
 }
 
-// When button is clicked, adds text and sets timer
+// Two functions to display text in element with id timer-started
+const timerStarted = () => {
+    $('#timer-started').html('Timer started');
+}
+const timerStopped = () => {
+    $('#timer-started').html('All Done!');  
+}
+
+// When button is clicked, adds text, sets timer, and then alters text again
 $('#start-timer').on('click', () => {
-    console.log('the timer button was pressed');
-    $('#timer-started').html('Timer started'); 
-    setTimeout(thisAlarm, selectedChoice*2000); 
+    console.log('the timer button was pressed'); 
+    timerStarted();
+    setTimeout(thisAlarm, selectedChoice*2000);
+    setTimeout(timerStopped, selectedChoice*2000); 
 });
+
+
 
 
 

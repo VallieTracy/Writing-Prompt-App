@@ -96,7 +96,7 @@ def writing_prompt():
     first_name = session["first_name"]
     message = f"The timer has started, so get to writing {first_name}!"
     
-    return render_template('writing_prompt.html', message=message, word1=random_word1, word2=random_word2, 
+    return render_template('writing_prompt.html', message=message, word1=random_word1, word2 = random_word2, 
     name=directive_name, prompt=the_prompt, word_qty=word_qty)
 
 
@@ -199,6 +199,9 @@ def new_directive():
     welcome = f"Here's a new writing directive for you {writer}..."
     return render_template('writing_directions.html', writing_directions=writing_directions, prompt_name=prompt_name, welcome_message=welcome, img_src=img_src) 
 
+@app.route('/longer-prompt')
+def longer_prompt():
+    return render_template('longer_writing.html')
 
 @app.route('/logout')
 def delete_sessions():

@@ -42,5 +42,5 @@ prompts_dicts = [
      'random_word_qty': 1,
      'img_path': None,
      'loops': 4,
-     'time': 10}
+     'time': 5}
 ]

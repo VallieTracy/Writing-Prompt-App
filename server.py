@@ -92,11 +92,21 @@ def writing_prompt():
     random_word1 = crud.get_random_word()
     random_word2 = crud.get_unique_second_word(random_word1)
     # instead of passing in random_word1 I would pass in a list of used words from the session
+    #new
+    used_words = []
+    word = crud.get_unique_word(used_words)
+    print('***************************')
+    print(word)
+    used_words.append(word)
+    session['used_words'] = used_words
+    print(f'/writing-prompt route, used_words = {used_words}')
+    #new
+    
 
     first_name = session["first_name"]
     message = f"The timer has started, so get to writing {first_name}!"
     
-    return render_template('writing_prompt.html', message=message, word1=random_word1, word2 = random_word2, 
+    return render_template('writing_prompt.html', message=message, word1=word, word2=random_word2,
     name=directive_name, prompt=the_prompt, word_qty=word_qty)
 
 
@@ -141,7 +151,20 @@ def prompts_json():
 def get_words():
     random_word1 = crud.get_random_word()
     random_word2 = crud.get_unique_second_word(random_word1)
-    return jsonify(random_word1, random_word2)
+    # new
+    used_words = session['used_words']
+    print('***************************************')
+    print(f'first used_words list in /random-words.json route is {used_words}')
+    word = crud.get_unique_word(used_words)
+    used_words.append(word)
+    print('******************************************')
+    print(f'used_words list after appending list in /random-words.json is {used_words}')
+    print(f'the word that is about to be jsonified is {word}')
+    print('***************************************')
+    return jsonify(word)
+    # new
+
+    # return jsonify(random_word1, random_word2)
 
 @app.route('/add-word', methods=['POST'])
 def api_word_add():
@@ -201,7 +224,16 @@ def new_directive():
 
 @app.route('/longer-prompt')
 def longer_prompt():
+
     return render_template('longer_writing.html')
+
+@app.route('/longer-prompt2', methods=['POST'])
+def longer_prompt2():
+    
+    id = int(request.form.get('value'))
+    prompt_choice = writing_functions.get_longer_prompt(id)
+    flash('flash message!')
+    return redirect('/homepage')
 
 @app.route('/logout')
 def delete_sessions():

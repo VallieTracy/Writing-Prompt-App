@@ -12,6 +12,15 @@ def get_random_dictionary():
     return random.choice(prompts_list)
     # pass used_dicts into this function with a default value of empty
 
+def get_longer_prompt(aNum):
+    """returns the dictionary from the longer prompts based on desired drop-down-menu id"""
+    prompts_list = dp.longer_prompts
+    for dictionary in prompts_list:
+        if dictionary['drop-down-id'] == aNum:
+            return dictionary
+
+
+
 
 def prompt_sentence():
 

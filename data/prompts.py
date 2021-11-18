@@ -44,3 +44,15 @@ prompts_dicts = [
      'loops': 4,
      'time': 5}
 ]
+
+longer_prompts = [
+    {'name': 'Longer Prompt 1',
+     'directions': ['1st paragraph of directions for longer prompt 1', '2nd lP if directions for longer prompt 1', '3rd lP of directions for longer prompt 1'],
+     'drop-down-id': 1},
+    {'name': 'Longer Prompt 2',
+     'directions': ['1st paragraph of directions for longer prompt 2', '2nd lP if directions for longer prompt 2', '3rd lP of directions for longer prompt 2'],
+     'drop-down-id': 2},
+    {'name': 'Longer Prompt 3',
+     'directions': ['1st paragraph of directions for longer prompt 3', '2nd lP if directions for longer prompt 3', '3rd lP of directions for longer prompt 3'],
+     'drop-down-id': 3}
+]

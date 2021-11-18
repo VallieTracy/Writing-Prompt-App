@@ -137,7 +137,8 @@ select.addEventListener('change', (event) => {
         value,
         text
     } = event.target.options[event.target.selectedIndex]
-console.log(value, text)
+console.log(value, text);
+alert(`testing!`)
 }) 
 
 // Alarm specific to the homepage

@@ -40,7 +40,7 @@ class Word(db.Model):
 
     __tablename__ = 'words'
 
-    word = db.Column(db.String(30), primary_key=True, unique=True)
+    word = db.Column(db.String(100), primary_key=True, unique=True)
     email = db.Column(db.String, db.ForeignKey('users.email'), nullable=True)
 
     user = db.relationship('User', backref='words')

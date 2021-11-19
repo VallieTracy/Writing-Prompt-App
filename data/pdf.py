@@ -261,7 +261,7 @@ test_list = ['BanaNA', 'FooT', 'ham']
 
 # Save list to words.json file
 out_file = open("words.json", "w")
-json.dump(test_list, out_file)
+json.dump(result, out_file)
 out_file.close() 
 
 

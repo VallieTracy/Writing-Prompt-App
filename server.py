@@ -149,7 +149,8 @@ def prompts_json():
 def get_words():
     # if session[used_words] contains all the words, then empty out session[used_words]
     # if length of session[used words] is euqal to (count query to get length of words table), then empty the session
-    if len(session['used_words']) >= 16:
+    total_word_count = crud.count_table()
+    if len(session['used_words']) >= (total_word_count - 4):
         session['used_words'] = []
         random_word1 = crud.get_unique_word(session['used_words'])
         session['used_words'].append(random_word1)
@@ -166,7 +167,8 @@ def get_words():
         random_word2 = crud.get_unique_word(session['used_words'])
         session['used_words'].append(random_word2)
         session.modified=True
- 
+    print('-------------------------------------------')
+    print(f"length of session used words - {len(session['used_words'])}")
     return jsonify(random_word1, random_word2)
 
 @app.route('/add-word', methods=['POST'])

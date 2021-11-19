@@ -60,6 +60,7 @@ def log_in():
         return redirect('/')
   
     else:
+        session['used_words'] = []
         writing_dictionary = writing_functions.get_random_dictionary()
         session["writing_dictionary"] = writing_dictionary 
         session["user_email"] = user.email
@@ -89,24 +90,19 @@ def writing_prompt():
     the_prompt = writing_dictionary['prompt']
     word_qty = writing_dictionary['random_word_qty']
 
-    random_word1 = crud.get_random_word()
-    random_word2 = crud.get_unique_second_word(random_word1)
-    # instead of passing in random_word1 I would pass in a list of used words from the session
-    #new
-    used_words = []
-    word = crud.get_unique_word(used_words)
-    print('***************************')
-    print(word)
-    used_words.append(word)
-    session['used_words'] = used_words
-    print(f'/writing-prompt route, used_words = {used_words}')
-    #new
+
+    random_word1 = crud.get_unique_word(session['used_words'])
+    session['used_words'].append(random_word1)
+    session.modified=True
     
+    random_word2 = crud.get_unique_word(session['used_words'])
+    session['used_words'].append(random_word2)
+    session.modified=True
 
     first_name = session["first_name"]
     message = f"The timer has started, so get to writing {first_name}!"
     
-    return render_template('writing_prompt.html', message=message, word1=word, word2=random_word2,
+    return render_template('writing_prompt.html', message=message, word1=random_word1, word2=random_word2,
     name=directive_name, prompt=the_prompt, word_qty=word_qty)
 
 
@@ -149,22 +145,27 @@ def prompts_json():
 
 @app.route('/random-words.json')
 def get_words():
-    random_word1 = crud.get_random_word()
-    random_word2 = crud.get_unique_second_word(random_word1)
-    # new
-    used_words = session['used_words']
-    print('***************************************')
-    print(f'first used_words list in /random-words.json route is {used_words}')
-    word = crud.get_unique_word(used_words)
-    used_words.append(word)
-    print('******************************************')
-    print(f'used_words list after appending list in /random-words.json is {used_words}')
-    print(f'the word that is about to be jsonified is {word}')
-    print('***************************************')
-    return jsonify(word)
-    # new
-
-    # return jsonify(random_word1, random_word2)
+    # if session[used_words] contains all the words, then empty out session[used_words]
+    # if length of session[used words] is euqal to (count query to get length of words table), then empty the session
+    if len(session['used_words']) >= 16:
+        session['used_words'] = []
+        random_word1 = crud.get_unique_word(session['used_words'])
+        session['used_words'].append(random_word1)
+        session.modified=True
+    
+        random_word2 = crud.get_unique_word(session['used_words'])
+        session['used_words'].append(random_word2)
+        session.modified=True
+    else:
+        random_word1 = crud.get_unique_word(session['used_words'])
+        session['used_words'].append(random_word1)
+        session.modified=True
+    
+        random_word2 = crud.get_unique_word(session['used_words'])
+        session['used_words'].append(random_word2)
+        session.modified=True
+ 
+    return jsonify(random_word1, random_word2)
 
 @app.route('/add-word', methods=['POST'])
 def api_word_add():
@@ -222,24 +223,24 @@ def new_directive():
     welcome = f"Here's a new writing directive for you {writer}..."
     return render_template('writing_directions.html', writing_directions=writing_directions, prompt_name=prompt_name, welcome_message=welcome, img_src=img_src) 
 
-@app.route('/longer-prompt')
+
+
+@app.route('/longer-prompt', methods=['GET'])
 def longer_prompt():
-
-    return render_template('longer_writing.html')
-
-@app.route('/longer-prompt2', methods=['POST'])
-def longer_prompt2():
+    print('************************** "/longer-prompt2" *********************************')
+    id = request.args.get('id')
+    test_id = 1
+    writing_dictionary = writing_functions.get_longer_prompt(2)
+    prompt_name = writing_dictionary['name'] 
+    writing_directions = writing_dictionary['directions']   
     
-    id = int(request.form.get('value'))
-    prompt_choice = writing_functions.get_longer_prompt(id)
-    flash('flash message!')
-    return redirect('/homepage')
+    return render_template('longer_writing.html', name=prompt_name, writing_directions=writing_directions)
 
 @app.route('/logout')
 def delete_sessions():
     """Deletes the user's sessions"""
     
-    sessions = ['writing_dictionary', 'user_email', 'first_name']
+    sessions = ['writing_dictionary', 'user_email', 'first_name', 'used_words']
     for item in sessions:
         session.pop(item, None)
     flash("You've been signed out.")

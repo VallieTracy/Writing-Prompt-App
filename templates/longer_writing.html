@@ -2,18 +2,18 @@
 {% block title %}LONGER WRITING{% endblock %}
 
 {% block content %}
-    <h2>The prompt that the user chose from the drop down menu</h2>
+    <h2>{{ name }}</h2>
         
-    <!-- {% for direction in writing_directions %}
+    {% for direction in writing_directions %}
     <p>{{ direction }}</p>
-    {% endfor %} -->
-    <h5>Directions here, similar to shorter prompts</h5>
-    <h5>This means I will need another dictionary for the longer prompts, though not as many keys I don't think.</h5>
+    {% endfor %}
+    
+    
     
     <div>
         <label for='time'>How long would you like to set the timer for?</label>
         <select name='time'>
-            <option value='4' selected>4 min</option>
+            <option value='4'>4 min</option>
             <option value='5'>5 min</option>
             <option value='6'>6 min</option>
             <option value='7'>7 min</option>
@@ -31,6 +31,9 @@
     <audio id='sound-homepage'>   
         <source id='sound-src' src="/static/Correct Answer.mp3" />   
     </audio> 
+    <p>testing if something shows up from route:</p>
+    <h1>{{ id }}</h1>
+    
 
 
     

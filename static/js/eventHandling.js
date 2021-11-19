@@ -51,6 +51,7 @@ const newWords = () => {
         console.log(response);
         console.log(`${response[0]}`)
         $('.loop').text(`${response[0]}`);
+        $('.loop2').text(`${response[1]}`);
     });
 }
 
@@ -106,7 +107,7 @@ const getLoop = () => {
             setTimeout(() => {
                 clearInterval(intervalID);
                 setTimeout(tooLong, timeOfLoop*1000);
-                setTimeout(unhideTheDiv, timeOfLoop);
+                setTimeout(unhideTheDiv, timeOfLoop*1000);
             }, (loopNumber*1000*timeOfLoop));
 
 
@@ -121,25 +122,21 @@ const getLoop = () => {
 
 getLoop();
 
-// Accessing dropdown menu on the homepage
-const select = document.querySelector("select");
+// // Accessing dropdown menu on the homepage
+// const select = document.querySelector("select");
 
-// Getting the selected value and returning it as a number
-const selectedChoice = Number(select.value);
+// // Getting the selected value and returning it as a number
+// const selectedChoice = Number(select.value);
 
-// Two prints statements to check that it's grabbing what I think it is
-console.log(`${selectedChoice} is the selected choice`);
-console.log(typeof selectedChoice);
-
-// Listening for the choice to be changed
-select.addEventListener('change', (event) => {
-    const {
-        value,
-        text
-    } = event.target.options[event.target.selectedIndex]
-console.log(value, text);
-alert(`testing!`)
-}) 
+// // Listening for the choice to be changed
+// select.addEventListener('change', (event) => {
+//     console.log(`something is happening`);
+//     const {
+//         value,
+//         text
+//     } = event.target.options[event.target.selectedIndex]
+//     console.log(`value: ${value}, text: ${text}`);
+// }) 
 
 // Alarm specific to the homepage
 const thisAlarm = () => {
@@ -158,9 +155,13 @@ const timerStopped = () => {
 // When button is clicked, adds text, sets timer, and then alters text again
 $('#start-timer').on('click', () => {
     console.log('the timer button was pressed'); 
+    const select = document.querySelector("select");
+    // gets the number from the drop down menu
+    const selectedChoice = Number(select.value);
+    console.log(`${selectedChoice} - selectedChoice`);
     timerStarted();
-    setTimeout(thisAlarm, selectedChoice*2000);
-    setTimeout(timerStopped, selectedChoice*2000); 
+    setTimeout(thisAlarm, selectedChoice*1000);
+    setTimeout(timerStopped, selectedChoice*1000); 
 });
 
 

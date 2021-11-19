@@ -5,7 +5,7 @@ prompts_dicts = [
      'random_word_qty': 1,
      'img_path': '/static/Images/single_many.jpg',
      'loops': 0,
-     'time': 2},
+     'time': 6},
     {'name': 'Two Minute Sprints',
      'directions': ["2 minute sprints are exactly what they sound like: responding to a prompt in only two minutes.",
                     "The limitation of time, combined with advancing to the next word without pausing, grants your brain permission to 'just keep firing' and blurt out anything it wants to. This is a great practice for creating unfiltered writing without judgement, as well as preventing editing as you write. There simply isn't time to mull over what you're going to say, much less how to word it.",

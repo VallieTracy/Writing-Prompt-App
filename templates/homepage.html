@@ -25,17 +25,14 @@
     
     <h3>I want to do some longer writing</h3>
 
-    <form action='/longer-prompt' method='get'>
-        <label for="prompt-select">Choose a writing prompt:</label>
-        <div>
-            <select name='prompts' id='prompt-select' onChange="window.document.location.href=this.options[this.selectedIndex].value;">
-                <option value=''>--Please choose an option--</option>
-                <option value='/longer-prompt' id='1' name='test'>Write about blobbidy blob</option>
-                <option value='/longer-prompt' id='2' name='test2'>Or bloobidy bloob</option>
-                <option value='/longer-prompt' id='3' name='test3'>Or blah blah!</option> 
-            </select>
-        </div>
-        <!-- <a class='btn border border-dark' role='button' href='/longer-prompt2'>Take Me There!</a> -->
+    <form action='/longer-prompt' method="get">
+        <label for='prompt-select'>Choose a writing prompt:</label>
+        <select name='prompt-select' onchange='if(this.value != 0) { this.form.submit(); }'>
+             <option value='0'>--Please choose an option--</option>
+             {% for i in range(prompts | length) %}
+             <option value='{{ i+1 }}'>{{ prompts[i]['name'] }}</option>
+             {% endfor %}
+        </select>
     </form>
 
     

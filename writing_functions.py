@@ -19,6 +19,10 @@ def get_longer_prompt(aNum):
         if dictionary['drop-down-id'] == aNum:
             return dictionary
 
+def get_all_long_prompts():
+    prompts_list = dp.longer_prompts
+    return prompts_list
+
 
 
 

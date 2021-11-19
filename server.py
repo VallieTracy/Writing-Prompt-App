@@ -127,7 +127,9 @@ def homepage():
     email = session["user_email"]
     nuggets = crud.get_nuggets_by_email(email)
 
-    return render_template('homepage.html', writer=writer)
+    prompts = writing_functions.get_all_long_prompts()
+
+    return render_template('homepage.html', writer=writer, prompts=prompts)
 
 @app.route('/homepage.json')
 def nugget_info():
@@ -227,14 +229,15 @@ def new_directive():
 
 @app.route('/longer-prompt', methods=['GET'])
 def longer_prompt():
-    print('************************** "/longer-prompt2" *********************************')
-    id = request.args.get('id')
-    test_id = 1
-    writing_dictionary = writing_functions.get_longer_prompt(2)
+    
+    prompt_id = request.args.get('prompt-select') 
+    dict_id = int(prompt_id)
+
+    writing_dictionary = writing_functions.get_longer_prompt(dict_id)
     prompt_name = writing_dictionary['name'] 
     writing_directions = writing_dictionary['directions']   
     
-    return render_template('longer_writing.html', name=prompt_name, writing_directions=writing_directions)
+    return render_template('longer_writing.html', name=prompt_name, writing_directions=writing_directions, id=prompt_id)
 
 @app.route('/logout')
 def delete_sessions():

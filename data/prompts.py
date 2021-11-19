@@ -46,10 +46,12 @@ prompts_dicts = [
 ]
 
 longer_prompts = [
-    {'name': 'Longer Prompt 1',
-     'directions': ['1st paragraph of directions for longer prompt 1', '2nd lP if directions for longer prompt 1', '3rd lP of directions for longer prompt 1'],
+    {'name': 'Finger Strings',
+     'directions': ['Hold your hand out in front of you, horizontally with palm facing down.', 'Open your mind and give your unconscious mind a judgment-free space to speak.', 
+     'Imagine five strings tied to your fingers and thumb. Imagine that from each string dangles an object. Anything your mind comes up with, accept it without editing it, no matter how small or big it is, and no matter how obvious or bizarre it seems. Just so it is an object, not a concept or event. For example, you can attach an apple to your string, but not the concept of hunger; a map, but not a concept of travel',
+     'This is using your right brain / subconscious and unconscious mind to move into intuition and imagination.', 'After you have five objects metaphorically dangling from you hand, pick just one of the objects, set the timer, and write a story about it!'],
      'drop-down-id': 1},
-    {'name': 'Longer Prompt 2',
+    {'name': 'The second prompt',
      'directions': ['1st paragraph of directions for longer prompt 2', '2nd lP if directions for longer prompt 2', '3rd lP of directions for longer prompt 2'],
      'drop-down-id': 2},
     {'name': 'Longer Prompt 3',

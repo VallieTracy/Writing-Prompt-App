@@ -248,8 +248,9 @@ def delete_sessions():
     sessions = ['writing_dictionary', 'user_email', 'first_name', 'used_words']
     for item in sessions:
         session.pop(item, None)
-    flash("You've been signed out.")
-    return redirect('/')
+    # flash("You've been signed out.")
+    # return redirect('/')
+    return render_template('goodbye.html')
 
 @app.route('/sound')
 def sound():

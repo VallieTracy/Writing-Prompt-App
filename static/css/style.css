@@ -1,3 +1,29 @@
 .small-for-testing {
     width: 350px;
 }
+
+.goodbye {
+    width: auto;
+    height: 100vh;
+}
+
+
+
+.base {
+    background-color: #322F7C;
+    color: #FFFFFF;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    z-index: 1;
+    padding: 5%;
+}
+
+.inner-base {
+    /* background-color: #322F7C;  */
+    border: solid;
+    border-width: 16px;
+    border-color: white;
+    border-radius: 12px;
+}
+

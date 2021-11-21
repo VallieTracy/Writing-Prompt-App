@@ -1,5 +1,5 @@
 .small-for-testing {
-    width: 350px;
+    width: 450px;
 }
 
 .goodbye {
@@ -19,11 +19,8 @@
     padding: 5%;
 }
 
-.inner-base {
-    /* background-color: #322F7C;  */
-    border: solid;
-    border-width: 16px;
-    border-color: white;
-    border-radius: 12px;
+#email {
+    background-color: transparent;
 }
+
 

@@ -4,8 +4,12 @@
 {% block content %}
     <h2>{{ name }}</h2>
         
-    {% for direction in writing_directions %}
-    <p>{{ direction }}</p>
+    {% for i in range(writing_directions | length) %}
+    {% if i == 0: %}
+    <h4><b>{{ writing_directions[i] }}</b></h4>
+    {% else: %}
+    <p>{{ writing_directions[i] }}</p>
+    {% endif %}
     {% endfor %}
     
     

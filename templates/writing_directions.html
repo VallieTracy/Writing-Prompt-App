@@ -11,6 +11,9 @@
     {% for direction in writing_directions %}
     <p>{{ direction }}</p>
     {% endfor %}
+
+    <!-- Button that will take user from directions to html that will show random word(s) and have timer -->
+    <a class='btn border border-dark' id='start-autopla' role='button' href = '/writing-prompt'>Begin!</a>
     
     {% if img_src %}
     <h4><u>Examples:</u></h4>
@@ -18,8 +21,7 @@
     {% else %}
     <img class='small-for-testing' src="{{ img_src }}" alt='writing image' hidden>
     {% endif %}
-    <!-- Button that will take user from directions to html that will show random word(s) and have timer -->
-    <a class='btn border border-dark' id='start-autopla' role='button' href = '/writing-prompt'>Begin!</a>
+    
     
  
 {% endblock %}  

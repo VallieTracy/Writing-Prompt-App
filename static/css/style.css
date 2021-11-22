@@ -1,12 +1,44 @@
 .small-for-testing {
-    width: 450px;
+    max-width: 100%;
+    height: auto;
+}
+
+.img-border {
+    border-radius: 13px;
+    border: #FF757D;
+    border-style: solid;
 }
 
 .goodbye {
-    width: auto;
-    height: 100vh;
+    max-width: 90%;
+    max-height: 80%;
 }
 
+.backdrop {
+    background-color: #322F7C;
+    height: 100vh;
+    width: 100vw;
+    box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* .second-backdrop {
+    height: 94%;
+    width: 94%;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+} */
+
+.back-img {
+    height: calc(100vh - 20%);
+    width: calc(100vw - 10%);
+    position: absolute;
+    top: calc(100vh - 90%);
+    left: calc(100vw - 95%);
+    object-fit: cover;
+    border-radius: 5px;
+}
 
 
 .base {

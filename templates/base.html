@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container-fluid border border-light base">
+    <!-- <div class="container-fluid border border-light base"> -->
         
         {% block content %}{% endblock %}
         {% for msg in get_flashed_messages() %}
@@ -22,7 +22,7 @@
         </p>
         {% endfor %} 
 
-    </div>  
+    <!-- </div>   -->
     
     
     {% block script %}{% endblock %}

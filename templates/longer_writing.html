@@ -17,15 +17,9 @@
     <div>
         <label for='time'>How long would you like to set the timer for?</label>
         <select name='time'>
-            <option value='4'>4 min</option>
-            <option value='5'>5 min</option>
-            <option value='6'>6 min</option>
-            <option value='7'>7 min</option>
-            <option value='8'>8 min</option>
-            <option value='9'>9 min</option>
-            <option value='10'>10 min</option>
-            <option value='11'>11 min</option>
-            <option value='12'>12 min</option>
+            {% for i in range(3, 16) %}
+            <option value='{{ i }}'>{{ i }} min</option>
+            {% endfor %}
         </select>
         <button id='start-timer'>Start Timer</button>
     </div>

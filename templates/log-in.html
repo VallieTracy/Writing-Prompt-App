@@ -2,18 +2,18 @@
 {% block title %}Log In{% endblock %}
 
 {% block content %}
-  <div class='container-fluid backdrop'>
+  <div class='container-fluid backdrop purple'>
     <div class='inner-container border border-dark'>
-    <h3>LOG IN</h3>
+    <h3 class='border border-light'>LOG IN</h3>
     <form action='/start' method='post'>
-        <div>
+        <div class='border border-dark'>
           <label for="email">Email: </label>
           <input type="email" name="email" id="email" required>
           
           <label for="password">Password: </label>
           <input type="password" name="password" id="password" required>
           
-          <input type="submit" value="Log In" id='start-autoplay'>
+          <input type="submit" value="Log In">
         </div>
     </form>
     <p>Click 

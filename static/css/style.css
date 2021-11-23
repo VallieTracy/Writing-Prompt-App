@@ -13,6 +13,7 @@
 
 .purple {
     background-color: #322F7C;
+    color: white;
 }
 
 .rocket-color {
@@ -84,9 +85,74 @@
     position: absolute;
     top: calc(100vh - 88%);
     left: calc((1/3)*(100vw));
-    z-index: 3;
-    
+    z-index: 3;   
 }
+
+.q1 {
+    position: absolute;
+    height: 60vh;
+    width: 50vw;
+}
+
+.q2 {
+    position: absolute;
+    width: 50vw;
+    height: 40vh;
+}
+
+.q3 {
+    position: absolute;
+    width: 50vw;
+    height: 40vh;
+}
+
+.q4 {
+    position: absolute;
+    width: 50vw;
+    height: 60vh;
+}
+
+.quarter-inner {
+    height: 54vh;
+    width: 44vw;
+    position: absolute;
+    left: 3vw;
+    top: 3vh;
+    z-index: 3;
+}
+
+.quarter-img {
+    height: 54vh;
+    width: 44vw;
+    object-fit: cover;
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
+    z-index: 2;
+}
+
+.quarter-ul {
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.quarter-ll {
+    left: 0;
+    bottom: 0;
+}
+
+.quarter-ur {
+    right: 0;
+    top: 0;
+}
+
+.quarter-lr {
+    right: 0;
+    bottom: 0;
+}
+
+
 
 #email, #password, #first_name, #last_name {
     background-color: transparent;

@@ -2,27 +2,44 @@
 {% block title %}Homepage{% endblock %}
 
 {% block content %}
-    <h3>{{ writer }}'s Homepage</h3>
-    <h5>Show me my:</h5>
+<div class='container-fluid backdrop purple border border-light'>
     
-    <a class='btn border border-dark' id='get-nuggets' role='button'>Nuggets</a>
-    <p id="no-nuggets"></p>
-    <ul id="nuggets"></ul>
 
-    <a class='btn border border-dark' id='get-words' role='button'>Words</a>
-    <p id="no-words"></p>
-    <ol id="words"></ol>
+    <!-- Upper-Left Corner -->
+    <div class='q1 quarter-ul border border-light'>
+        <div class='quarter-inner border border-light'>
+            <h5>Show me my:</h5>
+            
+            <a class='btn border border-dark' id='get-nuggets' role='button'>Nuggets</a>
+            <p id="no-nuggets"></p>
+            <ul id="nuggets"></ul>
 
+            <a class='btn border border-dark' id='get-words' role='button'>Words</a>
+            <p id="no-words"></p>
+            <ol id="words"></ol>
+        </div>
+    </div>
+
+    
+
+    <!-- Lower-Left Corner -->
+    <div class='q2 quarter-ll border border-light'>
     <h2>Would you like to try adding a word to the database for everyone to use?</h2>
     <form action='/add-word' method='post'>
         <input type='text' name='word' required> 
         <input type='submit' value='Submit my Word!'>
     </form>
+    </div>
 
-    <a class='btn border border-dark' role='button' href='/new-prompt'>Write Again!</a>
-   
-    <a class='btn border border-dark' role='button' href='/logout'>Log Out</a>
-    
+    <!-- Upper-Right Corner -->
+    <div class='q3 quarter-ur border border-light'>
+        <h3>{{ writer }}'s Homepage</h3>
+        <a class='btn border border-dark' role='button' href='/new-prompt'>Write Again!</a>
+        <a class='btn border border-dark' role='button' href='/logout'>Log Out</a>
+    </div>
+
+    <!-- Lower-Right Corner -->
+    <div class='q4 quarter-lr border border-light'>
     <h3>I want to do some longer writing</h3>
 
     <form action='/longer-prompt' method="get">
@@ -34,9 +51,12 @@
              {% endfor %}
         </select>
     </form>
+    </div>
 
     
 
+    <img src='/static/Images/nothing-small.jpg' class='quarter-img'>   
+</div> <!-- End of continer-fluid backdrop purple class-->
 
     
 

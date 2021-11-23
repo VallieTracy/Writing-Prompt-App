@@ -15,6 +15,7 @@ const nuggetRetrieve = () => {
 $('#get-nuggets').on('click', () => {
     console.log('the button was pressed');
     nuggetRetrieve();
+    $('#img-change').attr("src", '/static/Images/kid-small.jpg');
     $('#get-nuggets').off();    
 });
 
@@ -34,6 +35,7 @@ const wordRetrieve = () => {
 $('#get-words').on('click', () => {
     console.log('word button clicked');
     wordRetrieve();
+    $('#img-change').attr("src", '/static/Images/kid-small.jpg');
     $('#get-words').off();
 })
 

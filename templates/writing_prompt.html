@@ -2,7 +2,8 @@
 {% block title %}PROMPT{% endblock %}
 
 {% block content %}
-    <h1 id='demo'></h1>
+<div class='container-fluid backdrop'>
+    <div class='inner-container'>
     <h1>{{  name  }}</h1>
     
     <h4>{{ prompt.upper() }}</h4>
@@ -33,7 +34,11 @@
         <source id='sound-src' src="/static/Correct Answer.mp3" />   
     </audio> 
     <h3 id='too-long' style="color: red;"></h3>
-   
+
+    </div> <!-- End div for inner-container class-->
+    <img src='/static/Images/prompts.jpg' class='back-img'>
+ 
+</div> <!-- End of container-fluid backdrop-->    
 {% endblock %} 
 
 {% block script %}

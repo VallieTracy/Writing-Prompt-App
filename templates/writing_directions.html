@@ -2,6 +2,7 @@
 {% block title %}DIRECTIONS{% endblock %}
 
 {% block content %}
+
     <p>{{ welcome_message  }}</p>
     <h1>{{  prompt_name  }}</h1>
     <h4>DIRECTIONS</h4>
@@ -21,9 +22,7 @@
     {% else %}
     <img class='small-for-testing' src="{{ img_src }}" alt='writing image' hidden>
     {% endif %}
-    
-    
- 
+
 {% endblock %}  
 
 {% block script %}

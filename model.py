@@ -79,6 +79,16 @@ def connect_to_db(flask_app, db_uri="postgresql:///writers", echo=True):
 
     print("Connected to the db!")
 
+def test_connect_to_db(flask_app, db_uri="postgresql:///testdb", echo=True):
+    flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+    flask_app.config["SQLALCHEMY_ECHO"] = echo
+    flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    db.app = flask_app
+    db.init_app(flask_app)
+
+    print("Connected to the test db!")
+
 
 if __name__ == "__main__": #does something so we can use our application
     from server import app

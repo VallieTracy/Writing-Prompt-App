@@ -2,12 +2,13 @@
 {% block title %}Homepage{% endblock %}
 
 {% block content %}
-<div class='container-fluid backdrop purple border border-light'>
+<div class='container-fluid base-layer purple border border-light'>
     
+    <div class='inner-square border border-light'>
 
     <!-- Upper-Left Corner -->
     <div class='q1 quarter-ul border border-light'>
-        <div class='quarter-inner border border-light'>
+        <div class='quarter-inner border border-dark'>
             <h5>Show me my:</h5>
             
             <a class='btn border border-dark' id='get-nuggets' role='button'>Nuggets</a>
@@ -38,7 +39,7 @@
     </div>
 
     <!-- Upper-Right Corner -->
-    <div class='q3 quarter-ur border border-light'>
+    <div class='q3 quarter-ur border border-dark'>
         <h3>{{ writer }}'s Homepage</h3>
         <a class='btn border border-dark' role='button' href='/new-prompt'>Write Again!</a>
         <a class='btn border border-dark' role='button' href='/logout'>Log Out</a>
@@ -46,22 +47,25 @@
 
     <!-- Lower-Right Corner -->
     <div class='q4 quarter-lr border border-light'>
-    <h3>I want to do some longer writing</h3>
-
-    <form action='/longer-prompt' method="get">
-        <label for='prompt-select'>Choose a writing prompt:</label>
-        <select name='prompt-select' onchange='if(this.value != 0) { this.form.submit(); }'>
-             <option value='0'>--Please choose an option--</option>
-             {% for i in range(prompts | length) %}
-             <option value='{{ i+1 }}'>{{ prompts[i]['name'] }}</option>
-             {% endfor %}
-        </select>
-    </form>
+        <div class='quarter-inner border border-dark'>
+            <h3>I want to do some longer writing</h3>
+            <form action='/longer-prompt' method="get">
+                <label for='prompt-select'>Choose a writing prompt:</label>
+                <select name='prompt-select' onchange='if(this.value != 0) { this.form.submit(); }'>
+                    <option value='0'>--Please choose an option--</option>
+                    {% for i in range(prompts | length) %}
+                    <option value='{{ i+1 }}'>{{ prompts[i]['name'] }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
     </div>
 
     
 
-    <img src='/static/Images/nothing-small.jpg' class='quarter-img' id='img-change'>   
+    <img src='/static/Images/nothing-small.jpg' class='quarter-img' id='img-change'> 
+    <img src='/static/Images/paint-md-comp.jpg' class='vertical-img'>  
+    </div> <!--End of inner-square class-->
 </div> <!-- End of continer-fluid backdrop purple class-->
 
     

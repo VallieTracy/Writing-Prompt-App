@@ -1,7 +1,8 @@
 from unittest import TestCase
 from server import app
-from model import connect_to_db, db, example_data
+from model import test_connect_to_db, db, example_data
 from flask import session
+import server
 
 class FlaskTestsBasic(TestCase):
     """Flask tests"""
@@ -21,13 +22,9 @@ class FlaskTestsBasic(TestCase):
         result = self.client.get('/')
         self.assertIn(b"LOG IN", result.data)
 
-    # def test_login(self):
-    #     """Test Login"""
+    # don't need to do a tear down because the client closes on its own. DB does not do that.
 
-    #     result = self.client.post('/start',
-    #                               data={'email': 'yo@momma', 'password': 'pass1234'},
-    #                               follow_redirects=True)
-    #     self.assertIn(b"DIRECTIONS", result.data)
+
 
 class FlaskTestsDatabase(TestCase):
     """Flask tests that use the database"""
@@ -40,7 +37,7 @@ class FlaskTestsDatabase(TestCase):
         app.config['TESTING'] = True
         
         # Connect to test database
-        connect_to_db(app, "postgresql:///testdb")
+        test_connect_to_db(app, "postgresql:///testdb")
 
         # Create tables and add sample data
         db.create_all()
@@ -53,19 +50,27 @@ class FlaskTestsDatabase(TestCase):
         db.drop_all()
         db.engine.dispose()
 
-class FlaskTestsLoggedIn(TestCase):
-    """Flask tests with user logged in to session"""
+    def test_login(self):
+        """Test Login"""
 
-    def setUp(self):
-        """Stuff to do before every test"""
+        result = self.client.post('/start',
+                                  data={'email': 'user@user', 'password': 'password'}, #needs to be a user in my example data!
+                                  follow_redirects=True)
+        self.assertIn(b"DIRECTIONS", result.data)
 
-        app.config['TESTING'] = True
-        app.config['SECRET_KEY'] = 'key'
-        self.client = app.test_client()
+# class FlaskTestsLoggedIn(TestCase):
+#     """Flask tests with user logged in to session"""
 
-        with self.client as c:
-            with c.session_transaction() as sess:
-                sess['user_id'] = 1
+#     def setUp(self):
+#         """Stuff to do before every test"""
+
+#         app.config['TESTING'] = True
+#         app.config['SECRET_KEY'] = 'key'
+#         self.client = app.test_client()
+
+#         with self.client as c:
+#             with c.session_transaction() as sess:
+#                 sess['user_id'] = 1
 
     
 
@@ -75,5 +80,7 @@ if __name__=="__main__":
     import unittest
 
     unittest.main()
+
+# run createdb testdb in the terminal
 
     

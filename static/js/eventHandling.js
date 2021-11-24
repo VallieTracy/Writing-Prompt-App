@@ -35,7 +35,7 @@ const wordRetrieve = () => {
 $('#get-words').on('click', () => {
     console.log('word button clicked');
     wordRetrieve();
-    $('#img-change').attr("src", '/static/Images/kid-small.jpg');
+    $('#img-change').attr("src", '/static/Images/white-sm-comp.jpg');
     $('#get-words').off();
 })
 

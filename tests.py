@@ -21,29 +21,55 @@ class FlaskTestsBasic(TestCase):
         result = self.client.get('/')
         self.assertIn(b"LOG IN", result.data)
 
-# class FlaskTestsDatabase(TestCase):
-#     """Flask tests that use the database"""
+    # def test_login(self):
+    #     """Test Login"""
 
-#     def setUp(self):
-#         """Stuff to do before every test"""
+    #     result = self.client.post('/start',
+    #                               data={'email': 'yo@momma', 'password': 'pass1234'},
+    #                               follow_redirects=True)
+    #     self.assertIn(b"DIRECTIONS", result.data)
 
-#         # Get the Flask test client
-#         self.client = app.test_client()
-#         app.config['TESTING'] = True
+class FlaskTestsDatabase(TestCase):
+    """Flask tests that use the database"""
+
+    def setUp(self):
+        """Stuff to do before every test"""
+
+        # Get the Flask test client
+        self.client = app.test_client()
+        app.config['TESTING'] = True
         
-#         # Connect to test database
-#         connect_to_db(app, "postgresql:///testdb")
+        # Connect to test database
+        connect_to_db(app, "postgresql:///testdb")
 
-#         # Create tables and add sample data
-#         db.create_all()
-#         example_data()
+        # Create tables and add sample data
+        db.create_all()
+        example_data()
 
-#     def tearDown(self):
-#         """Do at end of every test"""
+    def tearDown(self):
+        """Do at end of every test"""
 
-#         db.session.remove()
-#         db.drop_all()
-#         db.engine.dispose()
+        db.session.remove()
+        db.drop_all()
+        db.engine.dispose()
+
+class FlaskTestsLoggedIn(TestCase):
+    """Flask tests with user logged in to session"""
+
+    def setUp(self):
+        """Stuff to do before every test"""
+
+        app.config['TESTING'] = True
+        app.config['SECRET_KEY'] = 'key'
+        self.client = app.test_client()
+
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess['user_id'] = 1
+
+    
+
+    
 
 if __name__=="__main__":
     import unittest

@@ -20,6 +20,14 @@
       <a href="/register">here</a>   
       to register.
     </p>
+
+    {% for msg in get_flashed_messages() %}
+        <!-- Flash messaging -->
+        <p class="flash-msg">
+          {{ msg }}
+        </p>
+    {% endfor %}
+
     </div> <!-- End div for inner-container class-->
     
     <img src='/static/Images/login-medium.jpg' class='back-img'>

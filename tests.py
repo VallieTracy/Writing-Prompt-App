@@ -24,8 +24,6 @@ class FlaskTestsBasic(TestCase):
 
     # don't need to do a tear down because the client closes on its own. DB does not do that.
 
-
-
 class FlaskTestsDatabase(TestCase):
     """Flask tests that use the database"""
 
@@ -48,29 +46,40 @@ class FlaskTestsDatabase(TestCase):
 
         db.session.remove()
         db.drop_all()
-        db.engine.dispose()
+        db.engine.dispose()    
 
     def test_login(self):
         """Test Login"""
 
         result = self.client.post('/start',
-                                  data={'email': 'user@user', 'password': 'password'}, #needs to be a user in my example data!
+                                  data={'email': 'user@user', 'password': 'password'}, # needs to be a user in my example data!
                                   follow_redirects=True)
         self.assertIn(b"DIRECTIONS", result.data)
 
-# class FlaskTestsLoggedIn(TestCase):
-#     """Flask tests with user logged in to session"""
+    def test_register(self):
+        """Tests that after registration, the page redirects to the log-in page"""
 
-#     def setUp(self):
-#         """Stuff to do before every test"""
+        result = self.client.post('/register-user',
+                                  data={'email': 'new_user@user', 'first_name': 'E', 'last_name': 'Tracy', 'password': 'password'}, # needs to be a user in my example data!
+                                  follow_redirects=True)
+        self.assertIn(b"LOG IN", result.data)
 
-#         app.config['TESTING'] = True
-#         app.config['SECRET_KEY'] = 'key'
-#         self.client = app.test_client()
+    def test_already_registered(self):
+        """Tests that if a user tries to register with an email already in the db
+        it will refresh the page"""
 
-#         with self.client as c:
-#             with c.session_transaction() as sess:
-#                 sess['user_id'] = 1
+        result = self.client.post('/register-user',
+                                  data={'email': 'user@user', 'first_name': 'SallyJoe', 'last_name': 'Tracy', 'password': 'new_password'}, # needs to be a user in my example data!
+                                  follow_redirects=True)
+        self.assertIn(b"Email:", result.data)
+
+
+        
+
+
+
+            
+
 
     
 

@@ -118,6 +118,7 @@
     position: absolute;
     width: 50vw;
     height: 40vh;
+    z-index: 18;
 }
 
 .q4 {

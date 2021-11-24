@@ -96,8 +96,6 @@ def seed_words():
         if word not in current_db:
             create_word(word, email=None)
 
-
-
 def count_table():
     count = Word.query.count()
     return count

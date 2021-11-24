@@ -48,6 +48,26 @@ class Word(db.Model):
     def __repr__(self):
         return f'<Word word = {self.word}; email = {self.email}>'
 
+def example_data():
+    """Create some sample data."""
+
+    # In case this is run more than once, empty out existing data
+    User.query.delete()
+    Nugget.query.delete()
+    Word.query.delete()
+
+    # Add sample users, nuggets, and words
+    user1 = User(email='user@user', first_name='Sally', last_name=None, password='password')
+    user2 = User(email='me@me.com', first_name='Me', last_name='notme', password='password')
+
+    nugget1 = Nugget(nugget='This is a nugget', email='user@user')
+    nugget2 = Nugget(nugget='This is a second nugget', email='me@me.com')
+
+    word1 = Word(word='bush', email='user@user')
+    word2 = Word(word='two', email='user@user')
+
+    db.session.add_all([user1, user2, nugget1, nugget2, word1, word2])
+    db.session.commit()
 
 def connect_to_db(flask_app, db_uri="postgresql:///writers", echo=True):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri

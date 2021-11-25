@@ -23,13 +23,66 @@
     position: relative;
     margin-left: 12%;
     margin-right: 12%;
-    height: 100vh;
-    background-color: seashell;
+    height: 96vh;
+    /* background-color: seashell; */
+    display: grid;
+    grid-template-columns: auto auto;
+    top: 2vh;
+}
+
+.grid-item {
+    border: 1px solid greenyellow;
+    padding: 20px;
+    width: 38vw;
+    height: 48vh;
+    /* z-index: 10; */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.grid-box-no-img {
+    border: 1px solid orange;
+    /* text-align: center; */
+    width: 30vw;
+    height: 40vh;
+    z-index: 2;
+    background-color: seashell; 
+    position: relative; 
+}
+
+.grid-box-no-img > * {
+    text-align: center;
+    padding: 15px;
+}
+
+/* .vertical-align {
+    position: absolute;
+    margin-left: 0;
+    margin-right: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+} */
+
+
+.grid-box-with-img {
+    border: 1px solid orange;
+    width: 30vw;
+    height: 40vh;
+    z-index: 3;
+}
+
+.grid-img {
+    object-fit: cover;
+    width: 30vw;
+    height: 40vh;
+    z-index: 2;
+    position: absolute;
 }
 
 .purple {
     background-color: #322F7C;
-    color: white;
 }
 
 .rocket-color {
@@ -104,7 +157,7 @@
     z-index: 3;   
 }
 
-.q1 {
+/* .q1 {
     position: absolute;
     height: 50vh;
     width: 38vw;
@@ -126,27 +179,28 @@
     position: absolute;
     height: 50vh;
     width: 38vw;
-}
+} */
 
-.quarter-inner {
+/* .quarter-inner {
     height: 46vh;
     width: 36vw;
     position: absolute;
     left: 1vw;
     top: 2vh;
-    z-index: 3;
-    background-color: tomato;
+    z-index: 2;
+    background-color: yellow;
 }
 
 .inner-inner {
-    z-index: 4;
+    z-index: 20;
     height: 40vh;
     width: 30vw;
     position: absolute;
-    background-color: crimson;
     left: 3vw;
     top: 3vh;
-}
+    z-index: 30;
+    /* background-color: crimson; */
+/* } */ 
 
 /* .center-inner {
     display: flex;
@@ -167,21 +221,21 @@
 } */
 
 .center-inner {
-    border: 2px solid lightblue;
         height: 40vh;
         text-align: center;
-        display: flex-inline;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 }
 
 .quarter-img {
-    height: 45vh;
+    height: 40vh;
     width: 30vw;
     object-fit: cover;
     position: absolute;
-    top: 3vh;
-    left: 3vw;
+    left: 4vw;
+    top: 5vh;
     z-index: 2;
     border:rgba(255, 185, 185, 0.979);
     border-radius: 1px;
@@ -200,7 +254,7 @@
     border-style: solid;
 }
 
-.quarter-ul {
+/* .quarter-ul {
     left: 0;
     top: 0;
 }
@@ -218,7 +272,7 @@
 .quarter-lr {
     right: 0;
     bottom: 0;
-}
+} */
 
 
 

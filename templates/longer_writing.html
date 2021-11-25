@@ -2,8 +2,10 @@
 {% block title %}LONGER WRITING{% endblock %}
 
 {% block content %}
+<div class='directions-base'>
     <h2>{{ name }}</h2>
-        
+     
+    <div class='overflow border border-dark'>
     {% for i in range(writing_directions | length) %}
     {% if i == 0: %}
     <h4><b>{{ writing_directions[i] }}</b></h4>
@@ -11,6 +13,7 @@
     <p>{{ writing_directions[i] }}</p>
     {% endif %}
     {% endfor %}
+    </div>
     
     
     
@@ -32,7 +35,10 @@
 
     <a class='btn border border-dark' role='button' href='/homepage'>Home Page</a>
 
-{% endblock %}  
+{% endblock %} 
+
+
+</div> <!-- End of directions-base container-->
 
 {% block script %}
     <script src="/static/js/eventHandling.js"></script>

@@ -129,7 +129,7 @@ def homepage():
 
     prompts = writing_functions.get_all_long_prompts()
 
-    return render_template('homepage2.html', writer=writer, prompts=prompts)
+    return render_template('homepage.html', writer=writer, prompts=prompts)
 
 @app.route('/homepage.json')
 def nugget_info():

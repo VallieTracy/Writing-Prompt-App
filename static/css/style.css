@@ -19,6 +19,21 @@
     padding-right: 0;
 }
 
+.directions-base {
+    width: 100vw;
+    height: 100vh;
+    box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
+    background-color: seashell;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.overflow {
+    width: 50vw;
+    height: 100vh;
+    overflow: scroll;
+}
+
 .inner-square {
     position: relative;
     margin-left: 12%;
@@ -49,22 +64,13 @@
     z-index: 2;
     background-color: seashell; 
     position: relative; 
+    border-radius: 10px;
 }
 
 .grid-box-no-img > * {
     text-align: center;
     padding: 15px;
 }
-
-/* .vertical-align {
-    position: absolute;
-    margin-left: 0;
-    margin-right: 0;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-} */
-
 
 .grid-box-with-img {
     border: 1px solid orange;
@@ -157,69 +163,6 @@
     z-index: 3;   
 }
 
-/* .q1 {
-    position: absolute;
-    height: 50vh;
-    width: 38vw;
-}
-
-.q2 {
-    position: absolute;
-    height: 50vh;
-    width: 38vw;
-}
-
-.q3 {
-    position: absolute;
-    height: 50vh;
-    width: 38vw;
-}
-
-.q4 {
-    position: absolute;
-    height: 50vh;
-    width: 38vw;
-} */
-
-/* .quarter-inner {
-    height: 46vh;
-    width: 36vw;
-    position: absolute;
-    left: 1vw;
-    top: 2vh;
-    z-index: 2;
-    background-color: yellow;
-}
-
-.inner-inner {
-    z-index: 20;
-    height: 40vh;
-    width: 30vw;
-    position: absolute;
-    left: 3vw;
-    top: 3vh;
-    z-index: 30;
-    /* background-color: crimson; */
-/* } */ 
-
-/* .center-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-    width: 30vw;
-} */
-
-/* .center-inner {
-    position: absolute;
-    top: 50%;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translateY(-50%);
-} */
-
 .center-inner {
         height: 40vh;
         text-align: center;
@@ -253,28 +196,6 @@
     border-radius: 2px;
     border-style: solid;
 }
-
-/* .quarter-ul {
-    left: 0;
-    top: 0;
-}
-
-.quarter-ll {
-    left: 0;
-    bottom: 0;
-}
-
-.quarter-ur {
-    right: 0;
-    top: 0;
-}
-
-.quarter-lr {
-    right: 0;
-    bottom: 0;
-} */
-
-
 
 #email, #password, #first_name, #last_name {
     background-color: transparent;

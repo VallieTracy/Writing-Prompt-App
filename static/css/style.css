@@ -15,6 +15,8 @@
     height: 100vh;
     width: 100vw;
     box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .inner-square {
@@ -104,36 +106,73 @@
 
 .q1 {
     position: absolute;
-    height: 60vh;
-    width: 50vw;
+    height: 50vh;
+    width: 38vw;
 }
 
 .q2 {
     position: absolute;
-    width: 50vw;
-    height: 40vh;
+    height: 50vh;
+    width: 38vw;
 }
 
 .q3 {
     position: absolute;
-    width: 50vw;
-    height: 40vh;
-    z-index: 18;
+    height: 50vh;
+    width: 38vw;
 }
 
 .q4 {
     position: absolute;
-    width: 50vw;
-    height: 60vh;
+    height: 50vh;
+    width: 38vw;
 }
 
 .quarter-inner {
-    height: 54vh;
-    width: 44vw;
+    height: 46vh;
+    width: 36vw;
     position: absolute;
+    left: 1vw;
+    top: 2vh;
+    z-index: 3;
+    background-color: tomato;
+}
+
+.inner-inner {
+    z-index: 4;
+    height: 40vh;
+    width: 30vw;
+    position: absolute;
+    background-color: crimson;
     left: 3vw;
     top: 3vh;
-    z-index: 3;
+}
+
+/* .center-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 30vw;
+} */
+
+/* .center-inner {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-50%);
+} */
+
+.center-inner {
+    border: 2px solid lightblue;
+        height: 40vh;
+        text-align: center;
+        display: flex-inline;
+        justify-content: center;
+        align-items: center;
 }
 
 .quarter-img {
@@ -164,7 +203,6 @@
 .quarter-ul {
     left: 0;
     top: 0;
-    z-index: 3;
 }
 
 .quarter-ll {

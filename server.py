@@ -237,9 +237,16 @@ def longer_prompt():
 
     writing_dictionary = writing_functions.get_longer_prompt(dict_id)
     prompt_name = writing_dictionary['name'] 
-    writing_directions = writing_dictionary['directions']   
+    writing_directions = writing_dictionary['directions'] 
+    bold_uppercase = writing_dictionary['bold-uppercase'] 
+    bold = writing_dictionary['bold'] 
+    text_indent = writing_dictionary['text-indent']
+    underline = writing_dictionary['underline']
+    text_indent_bold = writing_dictionary['text_indent_bold']
     
-    return render_template('longer_writing.html', name=prompt_name, writing_directions=writing_directions, id=prompt_id)
+    
+    return render_template('longer_writing.html', name=prompt_name, writing_directions=writing_directions, id=prompt_id, 
+                            bold_uppercase=bold_uppercase, bold=bold, text_indent=text_indent, underline=underline, text_indent_bold=text_indent_bold)
 
 @app.route('/logout')
 def delete_sessions():

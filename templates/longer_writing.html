@@ -3,12 +3,21 @@
 
 {% block content %}
 <div class='directions-base'>
-    <h2>{{ name }}</h2>
+    
      
     <div class='overflow border border-dark'>
+    <h2>{{ name }}</h2>
     {% for i in range(writing_directions | length) %}
-    {% if i == 0: %}
-    <h4><b>{{ writing_directions[i] }}</b></h4>
+    {% if i in bold: %}
+    <p><b>{{ writing_directions[i] }}</b></p>
+    {% elif i in bold_uppercase %}
+    <p><b>{{ (writing_directions[i]).upper() }}</b></p>
+    {% elif i in text_indent %}
+    <p style="margin-left: 7%;">{{ writing_directions[i] }}</p>
+    {% elif i in underline %}
+    <p><u>{{ writing_directions[i] }}</u></p>
+    {% elif i in text_indent_bold %}
+    <p style="margin-left: 7%;"><b>{{ writing_directions[i] }}</b></p>
     {% else: %}
     <p>{{ writing_directions[i] }}</p>
     {% endif %}
@@ -16,7 +25,7 @@
     </div>
     
     
-    
+    <div class='grid-item2'>
     <div>
         <label for='time'>How long would you like to set the timer for?</label>
         <select name='time'>
@@ -34,11 +43,15 @@
     </audio> 
 
     <a class='btn border border-dark' role='button' href='/homepage'>Home Page</a>
+    </div> <!-- end of grid-item2 class-->
+
+
+</div> <!-- End of directions-base container-->
 
 {% endblock %} 
 
 
-</div> <!-- End of directions-base container-->
+
 
 {% block script %}
     <script src="/static/js/eventHandling.js"></script>

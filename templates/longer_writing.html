@@ -5,7 +5,7 @@
 <div class='directions-base'>
     
      
-    <div class='overflow border border-dark'>
+    <div class='grid-left border border-dark'>
     <h2>{{ name }}</h2>
     {% for i in range(writing_directions | length) %}
     {% if i in bold: %}
@@ -25,16 +25,17 @@
     </div>
     
     
-    <div class='grid-item2'>
-    <div>
-        <label for='time'>How long would you like to set the timer for?</label>
-        <select name='time'>
+    <div class='grid-right'>
+    <div class='sticky border border-dark'>
+        
+        <div><label for='time'>How long would you like to set the timer for?</label></div>
+        <select name='time' class='time-choice'>
             {% for i in range(3, 16) %}
-            <option value='{{ i }}'>{{ i }} min</option>
+            <option value='{{ i }}'>{{ i }} minutes</option>
             {% endfor %}
         </select>
         <button id='start-timer'>Start Timer</button>
-    </div>
+    
 
     <p id='timer-started'></p>
 
@@ -43,6 +44,7 @@
     </audio> 
 
     <a class='btn border border-dark' role='button' href='/homepage'>Home Page</a>
+    </div> <!-- end of sticky class-->
     </div> <!-- end of grid-item2 class-->
 
 

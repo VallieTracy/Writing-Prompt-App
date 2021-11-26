@@ -27,13 +27,34 @@
     display: grid;
     grid-template-columns: auto auto;
     position: relative;
+    overflow: scroll;
 }
 
-.overflow {
+.grid-left {
     width: 60vw;
-    height: 100vh;
-    overflow: scroll;
     padding: 5%;
+}
+
+.grid-right {
+    
+    border: 1px solid greenyellow;
+    
+    width: 38vw;
+}
+
+.time-choice {
+    width: 11vw;
+}
+
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .inner-square {

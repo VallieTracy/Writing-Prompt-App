@@ -1,7 +1,9 @@
 .small-for-testing {
-    max-width: 100%;
-    height: auto;
+    max-width: 50vw;
+    max-height: 80vh;
 }
+
+
 
 .backdrop { 
     height: 100vh;
@@ -9,6 +11,72 @@
     box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 1;
+}
+
+.backdrop-img {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;   
+}
+
+.no-img-backdrop {
+    height: 88vh;
+    width: 50vw;
+    position: absolute;
+    z-index: 2;
+    top: 6vh;
+    left: 25vw;
+    box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.img-backdrop {
+    height: 88vh;
+    width: 94vw;
+    position: absolute;
+    top: 6vh;
+    left: 3vw;
+    z-index: 2;
+    box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.grid1 {
+    width: 40vw;
+    height: 88vh;
+    padding: 10%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid2 {
+    width: 54vw;
+    height: 88vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.innards {
+    height: 88vh;
+    width: 94vw;
+    position: absolute;
+    top: 6vh;
+    left: 3vw;
+    object-fit: cover;
+    border-radius: 5px;
+    z-index: 2;
+    box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
+    padding: 5%;
 }
 
 .base-layer {
@@ -34,6 +102,51 @@
     width: 60vw;
     padding: 5%;
 }
+
+.left-col {
+    width: 47vw;
+    height: 88vh;
+    position: absolute;
+    top: 6vh;
+    left: 3vw;
+    z-index: 3;
+    overflow: scroll;
+    padding: 3%;
+}
+
+.right-col-lower {
+    width: 47vw;
+    height: 10vh;
+    position: absolute;
+    bottom: 6vh;
+    right: 3vw;
+    z-index: 3;
+    text-align: right;
+}
+
+.right-col-upper {
+    width: 47vw;
+    height: 68vh;
+    position: absolute;
+    top: 16vh;
+    right: 3vw;
+    z-index: 3; 
+      
+}
+
+.examples {
+    width: 47vw;
+    height: 10vh;
+    position: absolute;
+    top: -5vh;
+    left: 0;
+    z-index: 13;
+}
+
+/* .right-col {
+    width: 100%;
+    overflow: scroll;
+} */
 
 .grid-right {
     
@@ -158,11 +271,11 @@
 }
 
 .back-img {
-    height: calc(100vh - 12%);
-    width: calc(100vw - 6%);
+    height: 88vh;
+    width: 94vw;
     position: absolute;
-    top: calc(100vh - 94%);
-    left: calc(100vw - 97%);
+    top: 6vh;
+    left: 3vw;
     object-fit: cover;
     border-radius: 5px;
     z-index: 2;

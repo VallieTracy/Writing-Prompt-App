@@ -282,7 +282,7 @@
     top: 6vh;
     left: 3vw;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 10px;
     z-index: 2;
 }
 
@@ -304,6 +304,49 @@
     left: calc((1/3)*(100vw));
     z-index: 4; 
     border-radius: 10px; 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.top {
+    width: calc((1/3)*(100vw)); 
+    position: absolute;
+    top: calc(100vh - 82%);
+    left: calc((1/3)*(100vw));
+    z-index: 4; 
+    text-align: center;
+}
+
+.bottom {
+    width: calc((1/3)*(100vw)); 
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    
+}
+
+#reg-submit {
+    background-color: rgb(211, 9, 77);
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#login-btn {
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+}
+
+.form {
+    justify-content: right;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
 }
 
 .center-inner {
@@ -340,8 +383,30 @@
     border-style: solid;
 }
 
-#email, #password, #first_name, #last_name {
-    background-color: transparent;
+/* #email, #password, #first_name, #last_name {
+    background-color: #322F7C;   
+} */
+
+#fire div.form #email, #first_name, #last_name, #password2  {
+    /* background-color: rgb(247, 0, 255); */
+    background-color: seashell;
+    opacity: 0.8;
+    /* background-color: transparent; */
+    /* color: rgb(211, 9, 77); */
+    color: black;
+    font-style: italic;
 }
+
+div.form #email, #password {
+    background-color: #322F7C;
+    color: seashell;
+    font-style: italic;
+}
+
+
+
+
+
+
 
 

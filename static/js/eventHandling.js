@@ -9,13 +9,15 @@ const nuggetRetrieve = () => {
         if (response.length == 0) {
             $('#no-nuggets').html("You haven't added any nuggets yet!");
         }
+        else {
+            $('#img-change').attr("src", '/static/Images/roller-md-comp.jpg');
+        }
     });
 }
 
 $('#get-nuggets').on('click', () => {
     console.log('the button was pressed');
     nuggetRetrieve();
-    $('#img-change').attr("src", '/static/Images/kid-small.jpg');
     $('#get-nuggets').off();    
 });
 
@@ -29,13 +31,15 @@ const wordRetrieve = () => {
         if (response.length == 0) {
             $('#no-words').html("You haven't added any words yet!");
         }
+        else {
+            $('#img-change').attr("src", '/static/Images/roller-md-comp.jpg');
+        }
     });
 }
 
 $('#get-words').on('click', () => {
     console.log('word button clicked');
     wordRetrieve();
-    $('#img-change').attr("src", '/static/Images/white-sm-comp.jpg');
     $('#get-words').off();
 })
 

@@ -195,24 +195,40 @@
 
 .grid-box-no-img {
     box-shadow: inset 0 0 5rem 0px rgba(0, 0, 0, 0.5);
-    /* text-align: center; */
     width: 30vw;
     height: 40vh;
     z-index: 2;
     background-color: rgb(119, 108, 100); 
     position: relative; 
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .grid-box-no-img > * {
     text-align: center;
-    padding: 15px;
+    padding: 5px;
+}
+
+.grid-box-no-img > h4 {
+    margin-bottom: 30px;
+}
+
+.grid-box-with-img > .inner-text {
+    padding: 30px;
+}
+
+.grid-box-with-img > .inner-center {
+    text-align: center;
 }
 
 .grid-box-with-img {
     width: 30vw;
     height: 40vh;
     z-index: 3;
+    color: white;
 }
 
 .grid-img {

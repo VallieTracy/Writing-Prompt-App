@@ -89,6 +89,8 @@ def writing_prompt():
     directive_name = writing_dictionary['name']
     the_prompt = writing_dictionary['prompt']
     word_qty = writing_dictionary['random_word_qty']
+    time = writing_dictionary['time_given']
+    loops = writing_dictionary['loops']
 
 
     random_word1 = crud.get_unique_word(session['used_words'])
@@ -100,9 +102,12 @@ def writing_prompt():
     session.modified=True
 
     first_name = session["first_name"]
-    message = f"The timer has started, so get to writing {first_name}!"
+    message = f"The timer has started. You have {time} {first_name}."
+    message2 = f"Each time the bell chimes, the timer will reset and you'll write with the new word."
+    message3 = f"You will do this {loops + 1} times."
     
-    return render_template('writing_prompt.html', message=message, word1=random_word1, word2=random_word2,
+    return render_template('writing_prompt.html', message=message, 
+    word1=random_word1, word2=random_word2, message2=message2, message3=message3, loops=loops,
     name=directive_name, prompt=the_prompt, word_qty=word_qty)
 
 

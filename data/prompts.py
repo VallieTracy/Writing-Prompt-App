@@ -4,8 +4,9 @@ prompts_dicts = [
      'prompt': 'Your single word to explore:',
      'random_word_qty': 1,
      'img_path': '/static/Images/single_many.jpg',
-     'loops': 0,
-     'time': 6},
+     'loops': 2,
+     'time': 6,
+     'time_given': '2 minutes'},
     {'name': 'Two Minute Sprints',
      'directions': ["2 minute sprints are exactly what they sound like: responding to a prompt in only two minutes.",
                     "The limitation of time, combined with advancing to the next word without pausing, grants your brain permission to 'just keep firing' and blurt out anything it wants to. This is a great practice for creating unfiltered writing without judgement, as well as preventing editing as you write. There simply isn't time to mull over what you're going to say, much less how to word it.",
@@ -14,7 +15,8 @@ prompts_dicts = [
      'random_word_qty': 1,
      'img_path': None,
      'loops': 1,
-     'time': 3},
+     'time': 3,
+     'time_given': '90 seconds'},
     {'name': 'Random Combinations',
      'directions': ["There is magic in grabbing hold of multiple random words that have no attachment to one another at face value. Open your mind, let your imagination take the lead, and form connections you otherwise wouldn't have thought of.",
                     "This is a great way to generate a wealth of fresh writing prompts. Give yourself even ten minutes to blurt out an unedited response, and you'll often be surprised by what comes out of you. Over time you can build on the ideas and storylines that surprise you with their quirkiness, lightness, or depth.",
@@ -23,7 +25,8 @@ prompts_dicts = [
      'random_word_qty': 2,
      'img_path': None,
      'loops': 2,
-     'time': 4},
+     'time': 4,
+     'time_given': '3 minutes'},
     {'name': 'Mind Mapping, AKA: Clustering',
      'directions': ["Mind Mapping is another way to spin out from a single prompt. This practice pulls you farther away from the original word the more you work it, unearthing a wide span of topics to write on.",
                     "Start with obvious references written close in to your prompt word, then let go of the natural need to stick with the prompt word and build separately on the responses you wrote to it. Continue working outward and opening new paths as you go.",
@@ -32,7 +35,8 @@ prompts_dicts = [
      'random_word_qty': 1,
      'img_path': '/static/Images/mind_map.jpg',
      'loops': 3,
-     'time': 5},
+     'time': 5,
+     'time_given': '2 minutes'},
     {'name': 'Endings Into Beginnings',
      'directions': ["Write a single sentence, just one line long. It can be absolutely anything you want, as long as it fits on one line.",
                     "Rewrite the last word of sentence #1 onto line #2. This is now the first word in your second sentence. Again write anything you want, as long as it fits on one line.",
@@ -41,8 +45,9 @@ prompts_dicts = [
      'prompt': 'Your first sentence must include the word:',
      'random_word_qty': 1,
      'img_path': None,
-     'loops': 4,
-     'time': 5}
+     'loops': 0,
+     'time': 5,
+     'time_given': '4 minutes'}
 ]
 
 longer_prompts = [

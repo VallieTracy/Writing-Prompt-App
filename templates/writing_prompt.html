@@ -4,6 +4,7 @@
 {% block content %}
 <div class='container-fluid backdrop almond'>
     <div class='inner-container border border-dark'>
+    <div class='prompt-inner border border-dark'>
     <h1>{{  name  }}</h1>
     
     <h4>{{ prompt.upper() }}</h4>
@@ -18,6 +19,11 @@
     <p class='loop'>{{ word1 }}</p>
     {% endif %}
     <p>{{ message }}</p>
+    
+    {% if loops != 0 %}
+    <p>{{ message2 }}</p>
+    <p>{{ message3 }}</p>
+    {% endif %}
     
     <div id='hidden-element'>
         <h2 class='hidden-div'>Would you like to store any nuggets?</h2>
@@ -34,10 +40,11 @@
         <source id='sound-src' src="/static/Correct Answer.mp3" />   
     </audio> 
     <h3 id='too-long' style="color: red;"></h3>
-
+    </div> <!--End of prompt-inner container -->
     </div> <!-- End div for inner-container class-->
     <img src='/static/Images/prompts.jpg' class='back-img'>
- 
+
+    
 </div> <!-- End of container-fluid backdrop-->    
 {% endblock %} 
 

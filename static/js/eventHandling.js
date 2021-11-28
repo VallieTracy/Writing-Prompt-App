@@ -79,7 +79,7 @@ const getLoop = () => {
         let timeOfLoop = (response.time);
         console.log(`loopNumber is ${loopNumber} and timeOfLoop is ${timeOfLoop}`);
         let promptName = (response.name);
-        if (promptName !== 'Single Words with Multiple Meanings') {
+        if (promptName !== 'Endings Into Beginnings') {
 
             // using setTimeout on playAlarm so that it doesn't sound immediately 
             // timeOfLoop is an integer, writen as if seconds (will be something like 90 sec or 2 minutes)

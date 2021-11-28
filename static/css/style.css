@@ -217,11 +217,18 @@
 }
 
 .grid-box-with-img > .inner-text {
-    padding: 30px;
+    padding: 3%;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .grid-box-with-img > .inner-center {
     text-align: center;
+}
+
+.inner-text > * {
+    color: white;
 }
 
 .grid-box-with-img {
@@ -229,6 +236,18 @@
     height: 40vh;
     z-index: 3;
     color: white;
+    
+    position: relative; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#no-nuggets, #no-words {
+    color: seashell;
+    padding: 5px;
 }
 
 .grid-img {
@@ -402,9 +421,12 @@
     border-style: solid;
 }
 
-/* #email, #password, #first_name, #last_name {
-    background-color: #322F7C;   
-} */
+.flash-msg {
+    color: seashell;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin: 0!important;
+}
 
 #fire div.form #email, #first_name, #last_name, #password2  {
     /* background-color: rgb(247, 0, 255); */

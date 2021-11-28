@@ -11,6 +11,8 @@ const nuggetRetrieve = () => {
         }
         else {
             $('#img-change').attr("src", '/static/Images/roller-md-comp.jpg');
+            $('#nuggets').css('color', 'black');
+            $('.text-change').css('color', 'black');
         }
     });
 }
@@ -33,6 +35,8 @@ const wordRetrieve = () => {
         }
         else {
             $('#img-change').attr("src", '/static/Images/roller-md-comp.jpg');
+            $('#words').css('color', 'black');
+            $('.text-change').css('color', 'black')
         }
     });
 }

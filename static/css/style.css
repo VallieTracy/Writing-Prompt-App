@@ -152,7 +152,7 @@
 
 .grid-right {
     
-    border: 1px solid greenyellow;
+    /* border: 1px solid greenyellow; */
     
     width: 38vw;
 }
@@ -171,6 +171,36 @@
     display: flex;
     flex-direction: column;
 }
+
+.sticky > * {
+    margin: 1%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sticky > button, a {
+    width: 8vw;
+}
+
+#start-timer, .sticky-btn {
+    background-color: #FF757D;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #322F7C;
+    border-width: 2px;
+    height: 4vh;
+    color: #322F7C;
+}
+
+.last-page {
+    /* background-color: #322F7C;
+    color: #FF757D; */
+    background-color: seashell;
+    color: black;
+}
+
 
 .inner-square {
     position: relative;

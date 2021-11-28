@@ -2,10 +2,10 @@
 {% block title %}LONGER WRITING{% endblock %}
 
 {% block content %}
-<div class='directions-base'>
+<div class='directions-base last-page'>
     
      
-    <div class='grid-left border border-dark'>
+    <div class='grid-left'>
     <h2>{{ name }}</h2>
     {% for i in range(writing_directions | length) %}
     {% if i in bold: %}
@@ -26,7 +26,7 @@
     
     
     <div class='grid-right'>
-    <div class='sticky border border-dark'>
+    <div class='sticky'>
         
         <div><label for='time'>How long would you like to set the timer for?</label></div>
         <select name='time' class='time-choice'>
@@ -43,7 +43,8 @@
         <source id='sound-src' src="/static/Correct Answer.mp3" />   
     </audio> 
 
-    <a class='btn border border-dark' role='button' href='/homepage'>Home Page</a>
+    <a class='btn sticky-btn' role='button' href='/homepage'>Home Page</a>
+    
     </div> <!-- end of sticky class-->
     </div> <!-- end of grid-item2 class-->
 

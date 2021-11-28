@@ -219,8 +219,8 @@
 .grid-box-with-img > .inner-text {
     padding: 3%;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 3%;
 }
 
 .grid-box-with-img > .inner-center {
@@ -228,7 +228,7 @@
 }
 
 .inner-text > * {
-    color: white;
+    color: black;
 }
 
 .grid-box-with-img {
@@ -245,9 +245,19 @@
     flex-direction: column;
 }
 
-#no-nuggets, #no-words {
+#no-nuggets, #no-words, #nuggets, #words {
+    color: black;
+    box-shadow: inset 0 0 7rem 0px seashell;
+    border-radius: 2px;
+    margin: 5px;
+}
+
+#get-nuggets, #get-words {
+    border-color: #322F7C;
+    /* background-color: #FF757D; */
     color: seashell;
-    padding: 5px;
+    background-color: #FF757D;
+    border-width: 2px;
 }
 
 .grid-img {
@@ -259,6 +269,15 @@
     border-radius: 10px;
     border-style: solid;
     border-color: black;
+}
+
+.grid-img-overlay {
+    object-fit: cover;
+    width: 30vw;
+    height: 40vh;
+    z-index: 2;
+    position: absolute;
+    top: 16%;
 }
 
 .purple {

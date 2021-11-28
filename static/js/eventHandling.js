@@ -9,11 +9,6 @@ const nuggetRetrieve = () => {
         if (response.length == 0) {
             $('#no-nuggets').html("You haven't added any nuggets yet!");
         }
-        else {
-            $('#img-change').attr("src", '/static/Images/roller-md-comp.jpg');
-            $('#nuggets').css('color', 'black');
-            $('.text-change').css('color', 'black');
-        }
     });
 }
 
@@ -32,11 +27,6 @@ const wordRetrieve = () => {
         }
         if (response.length == 0) {
             $('#no-words').html("You haven't added any words yet!");
-        }
-        else {
-            $('#img-change').attr("src", '/static/Images/roller-md-comp.jpg');
-            $('#words').css('color', 'black');
-            $('.text-change').css('color', 'black')
         }
     });
 }

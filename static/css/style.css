@@ -285,10 +285,9 @@
 }
 
 #get-nuggets, #get-words {
-    border-color: #322F7C;
-    /* background-color: #FF757D; */
-    color: seashell;
+    color: #322F7C;
     background-color: #FF757D;
+    border-color: #322F7C;
     border-width: 2px;
 }
 

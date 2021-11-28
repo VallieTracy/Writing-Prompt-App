@@ -102,12 +102,11 @@ def writing_prompt():
     session.modified=True
 
     first_name = session["first_name"]
-    message = f"The timer has started. You have {time} {first_name}."
-    message2 = f"Each time the bell chimes, the timer will reset and you'll write with the new word."
-    message3 = f"You will do this {loops + 1} times."
+    message = f"{first_name}, the timer has been started. You will have {time} for this exercise."
+    message2 = f"Each time the bell chimes, the timer will reset and you'll write with the new word. You will do this {loops + 1} times."
     
     return render_template('writing_prompt.html', message=message, 
-    word1=random_word1, word2=random_word2, message2=message2, message3=message3, loops=loops,
+    word1=random_word1, word2=random_word2, message2=message2, loops=loops,
     name=directive_name, prompt=the_prompt, word_qty=word_qty)
 
 

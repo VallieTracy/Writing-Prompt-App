@@ -68,7 +68,7 @@ const tooLong = () => {
     document.getElementById ("sound").setAttribute ('src', '/static/t-rex-roar.mp3');
     const mySound = document.getElementById("sound");    
     mySound.play();
-    $('#too-long').text('All done!');
+    $('#too-long').text('ALL DONE!');
 }
 
 // Function that uses AJAX to access writing dictionaries

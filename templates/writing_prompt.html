@@ -3,43 +3,48 @@
 
 {% block content %}
 <div class='container-fluid backdrop almond'>
-    <div class='inner-container border border-dark'>
-    <div class='prompt-inner border border-dark'>
+    <div class='inner-container'>
+    <div class='prompt-inner'>
     <h1>{{  name  }}</h1>
     
     <h4>{{ prompt.upper() }}</h4>
     {% if word_qty == 2 %}
-    <row>
+    <div class='two-words'>
         <p class='loop'>{{ word1 }}</p>
-        <p><b>and</b></p>
+        <p></p>
+        <p><b>&nbsp;and&nbsp;</b></p>
         <p class='loop2'>{{ word2 }}</p>
-    </row>
+    </div>
     
     {% else %}
     <p class='loop'>{{ word1 }}</p>
     {% endif %}
-    <p>{{ message }}</p>
+    <p class='messaging'>{{ message }}</p>
     
     {% if loops != 0 %}
-    <p>{{ message2 }}</p>
-    <p>{{ message3 }}</p>
+    <p class='messaging'>{{ message2 }}</p>
     {% endif %}
     
     <div id='hidden-element'>
-        <h2 class='hidden-div'>Would you like to store any nuggets?</h2>
+        <h2 id='too-long' style="color: red;"></h2>
+        <h3 class='hidden-div'>Would you like to store any nuggets?</h3>
         
         <form action='/store-nugget' method='post'> 
+            <div>
             <textarea name='nugget'></textarea>
-            <input type='submit' value='Submit'>
+            </div>
+            <div class='close-btn'>
+            <input class='prompt-btns' type='submit' value='Submit'>
+            </div>
         </form>
         
-        <a class='btn border border-dark' id="no-nugget-click" role='button' href = '/homepage'>Nope!</a>
+        <a class='btn prompt-btns' id="no-nugget-click" role='button' href = '/homepage'>Nope!</a>
     </div>
 
     <audio id='sound'>   
         <source id='sound-src' src="/static/Correct Answer.mp3" />   
     </audio> 
-    <h3 id='too-long' style="color: red;"></h3>
+    
     </div> <!--End of prompt-inner container -->
     </div> <!-- End div for inner-container class-->
     <img src='/static/Images/prompts.jpg' class='back-img'>

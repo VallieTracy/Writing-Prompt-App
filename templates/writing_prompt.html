@@ -3,11 +3,13 @@
 
 {% block content %}
 <div class='container-fluid backdrop almond'>
-    <div class='inner-container'>
+    <div class='inner-container-2'>
     <div class='prompt-inner'>
-    <h1>{{  name  }}</h1>
-    
-    <h4>{{ prompt.upper() }}</h4>
+        
+        <h1>{{ name }}</h1>
+        <h4>{{ prompt.upper() }}</h4>
+        
+        
     {% if word_qty == 2 %}
     <div class='two-words'>
         <p class='loop'>{{ word1 }}</p>
@@ -19,10 +21,10 @@
     {% else %}
     <p class='loop'>{{ word1 }}</p>
     {% endif %}
-    <p class='messaging'>{{ message }}</p>
+    <p>{{ message }}</p>
     
     {% if loops != 0 %}
-    <p class='messaging'>{{ message2 }}</p>
+    <p class='msg2'>{{ message2 }}</p>
     {% endif %}
     
     <div id='hidden-element'>

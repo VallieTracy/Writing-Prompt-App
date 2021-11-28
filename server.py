@@ -119,9 +119,11 @@ def store_nugget():
     email = session["user_email"]
     if nugget != '':
         crud.create_nugget(nugget, email)
-        flash('Your nugget was successfully stored!')   
+        flash('Your nugget was successfully stored!')  
+        print('FLASH MESSAGE STORED!') 
     else:
         flash('No nuggets added.')
+        print('FLASH MESSAGE NONE ADDED')
     return redirect('/homepage')
 
 @app.route('/homepage')

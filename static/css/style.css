@@ -194,6 +194,10 @@
     color: #322F7C;
 }
 
+#purp {
+    color:#322F7C;
+}
+
 .last-page {
     /* background-color: #322F7C;
     color: #FF757D; */
@@ -284,11 +288,31 @@
     margin: 5px;
 }
 
-#get-nuggets, #get-words {
+.get-nuggets, .get-words {
     color: #322F7C;
     background-color: #FF757D;
     border-color: #322F7C;
     border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#get-nuggets, #get-words {
+    color: #322F7C;
+}
+
+.home-btn {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: black;
+}
+
+.home-btn:hover {
+    background: seashell;
+    border-width: 1px;
+    border-color: #322F7C;
+    color: #322F7C;
 }
 
 .grid-img {
@@ -370,7 +394,41 @@
     color: black;
     border-color: black;
     border-radius: 5px;
+    border-width: 1px;
 }
+
+.btn:hover {
+    border-width: 3px;
+}
+
+#start-timer:hover {
+    border-width: 3px;
+}
+
+.login-btn {
+    background-color: seashell;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #322F7C;
+    color: #322F7C;
+    border-width: 1px;
+    width: 100px;
+    height: 40px;
+}
+
+.reg-btn {
+    background-color: rgb(211, 9, 77);
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #322F7C;
+}
+
+ 
+
 
 .full-img {
     height: 100vh;
@@ -476,7 +534,15 @@ textarea {
     width: calc((.39)*(100vw));
 }
 
-#hidden-element > h3 {
+#hidden-element > h3  {
+    color: #322F7C;
+}
+
+#hidden-element > .btn {
+    color: #322F7C;
+}
+
+#hidden-element .prompt-btns {
     color: #322F7C;
 }
 
@@ -508,6 +574,7 @@ textarea {
     left: calc((1/3)*(100vw));
     z-index: 4; 
     text-align: center;
+    color: white;
 }
 
 .bottom {
@@ -518,19 +585,9 @@ textarea {
     
 }
 
-#reg-submit {
-    background-color: rgb(211, 9, 77);
-    color: white;
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-}
 
-#login-btn {
-    border-radius: 5px;
-    width: 100px;
-    height: 40px;
-}
+
+
 
 
 
@@ -591,12 +648,23 @@ textarea {
     /* color: rgb(211, 9, 77); */
     color: black;
     font-style: italic;
+    border-radius: 5px;
 }
 
 div.form #email, #password {
     background-color: #322F7C;
     color: seashell;
     font-style: italic;
+    border-radius: 5px;
+}
+
+div.form .login-btn {
+    color: #322F7C;
+}
+
+div.form .reg-btn {
+    color: seashell;
+    border-width: 1px;
 }
 
 

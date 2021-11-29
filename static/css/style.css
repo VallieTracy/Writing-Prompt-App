@@ -189,7 +189,7 @@
     border-radius: 5px;
     border-style: solid;
     border-color: #322F7C;
-    border-width: 2px;
+    border-width: 1px;
     height: 4vh;
     color: #322F7C;
 }
@@ -288,7 +288,7 @@
     color: #322F7C;
     background-color: #FF757D;
     border-color: #322F7C;
-    border-width: 2px;
+    border-width: 1px;
 }
 
 .grid-img {
@@ -316,24 +316,34 @@
 }
 
 .rocketcolor {
-    background-color: rgb(247, 0, 255);
+    /* background-color: rgb(247, 0, 255); */
+    background-color: #322F7C;
     box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
 }
 
-#fire {
+/* #fire {
     box-shadow: inset 0 0 7rem 0 seashell, 0 0 3rem 0 yellow;
-}
+    box-shadow: inset 0 0 7rem 0 seashell, 0 0 3rem 0 yellow, 0 0 7rem 0 orange;
+    box-shadow: inset 0 0 7rem 0 seashell, 0 0 3rem 0 yellow, 0 0 7rem 0 orange, 0 0 7rem 0 orangered;
+    box-shadow: inset 0 0 5rem 0 seashell, 0 0 5rem 0 yellow, 0 0 5rem 0 orange, 0 0 5rem 0 orangered, 0 0 5rem 0 red;
+} */
 
 .black {
     background-color: black;
 }
 
-.bye-img {
+/* .bye-img {
     width: 850px;
     height: auto;
     position: absolute;
     left: 30%;
     bottom: 15%;
+} */
+
+.bye-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .almond {
@@ -343,15 +353,23 @@
 .bye {
     position: absolute;
     left: 5%;
-    top: 5%;
+    top: 0;
     z-index: 10;
+    font-size: 200px;
+    color: black;
+    font-weight: lighter;
 }
 
 .bye-hello {
     position: absolute;
     right: 5%;
-    bottom: 5%;
+    bottom: 10%;
     z-index: 10;
+    height: 40px;
+    width: 120px;
+    color: black;
+    border-color: black;
+    border-radius: 5px;
 }
 
 .full-img {
@@ -393,6 +411,7 @@
     left: calc((1/3)*(100vw));
     z-index: 3;
     border-radius: 10px;
+    /* object-fit: cover; */
 }
 
 .inner-container {
@@ -463,12 +482,24 @@ textarea {
 
 .prompt-btns {
     color: #322F7C;
-    background-color: seashell;
+    background-color: rgba(255, 185, 185, 0.979);
     border-radius: 5px;
     border-style: solid;
     border-color: #322F7C;
     border-width: 1px;
-    width: 20%;
+    width: 100px;
+    height: 40px;
+}
+
+.btn-wd {
+    background-color: rgb(172, 172, 172);
+    width: 100px;
+    border-radius: 5px;
+    height: 40px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    color: black;
 }
 .top {
     width: calc((1/3)*(100vw)); 
@@ -500,6 +531,8 @@ textarea {
     width: 100px;
     height: 40px;
 }
+
+
 
 .form {
     justify-content: right;

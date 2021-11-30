@@ -3,7 +3,9 @@
     max-height: 80vh;
 }
 
-
+/* body {
+    letter-spacing: 0.1rem;
+} */
 
 .backdrop { 
     height: 100vh;
@@ -374,7 +376,7 @@
     top: 0;
     z-index: 10;
     font-size: 200px;
-    color: black;
+    color: #322F7C;
     font-weight: lighter;
 }
 
@@ -385,8 +387,8 @@
     z-index: 10;
     height: 40px;
     width: 120px;
-    color: black;
-    border-color: black;
+    color: #322F7C;
+    border-color: #322F7C;
     border-radius: 5px;
     border-width: 1px;
 }
@@ -408,6 +410,10 @@
     border-width: 1px;
     width: 100px;
     height: 40px;
+}
+
+.inner-container > h3 {
+    font-size: 35px;
 }
 
 
@@ -624,6 +630,20 @@ textarea {
     padding: 5%;
 }
 
+.click-reg {
+    color: white;
+    padding-top: 3%;
+    letter-spacing: .05rem;
+}
+
+.click-reg > a {
+    color: yellow;
+}
+
+.click-reg > a:hover {
+    font-weight: bold;
+}
+
 .center-inner {
         height: 40vh;
         text-align: center;
@@ -681,6 +701,7 @@ div.form #email, #password, #first_name, #last_name {
     color: seashell;
     border-radius: 5px;
     height: 39px;
+    width: 186px;
 }
 
 div.form .login-btn {
@@ -691,6 +712,11 @@ div.form .login-btn {
     color: seashell;
     /* font-style: italic; */
     /* letter-spacing: .1rem; */
+}
+
+.goodbye {
+    height: 100vh;
+    width: 100vw;
 }
 
 

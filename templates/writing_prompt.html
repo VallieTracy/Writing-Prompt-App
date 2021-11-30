@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class='container-fluid backdrop almond'>
+    
     <div class='inner-container-2'>
     <div class='prompt-inner'>
         
@@ -14,7 +15,7 @@
     <div class='two-words'>
         <p class='loop'>{{ word1 }}</p>
         <p></p>
-        <p><b>&nbsp;&nbsp;and&nbsp;&nbsp;</b></p>
+        <p class='and'>&nbsp;&nbsp;and&nbsp;&nbsp;</p>
         <p class='loop2'>{{ word2 }}</p>
     </div>
     
@@ -28,7 +29,8 @@
     {% endif %}
     
     <div id='hidden-element'>
-        <h2 id='too-long' style="color: red;"></h2>
+        <div class='hbar'></div>
+        <h2 id='too-long'></h2>
         <h3 class='hidden-div'>Would you like to store any nuggets?</h3>
         
         <form action='/store-nugget' method='post'> 

@@ -339,12 +339,6 @@
     background-color: #322F7C;
 }
 
-.rocketcolor {
-    /* background-color: rgb(247, 0, 255); */
-    background-color: #322F7C;
-    box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
-}
-
 /* #fire {
     box-shadow: inset 0 0 7rem 0 seashell, 0 0 3rem 0 yellow;
     box-shadow: inset 0 0 7rem 0 seashell, 0 0 3rem 0 yellow, 0 0 7rem 0 orange;
@@ -416,16 +410,6 @@
     height: 40px;
 }
 
-.reg-btn {
-    background-color: rgb(211, 9, 77);
-    color: white;
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #322F7C;
-}
 
  
 
@@ -448,6 +432,7 @@
     object-fit: cover;
     border-radius: 10px;
     z-index: 2;
+    opacity: 0.6;
 }
 
 .back-img-2 {
@@ -491,7 +476,7 @@
     height: calc(100vh - 24%);
     width: calc((.39)*(100vw));
     position: absolute;
-    top: calc(100vh - 88%);
+    top: calc(100vh - 92%);
     left: calc((1/3)*(100vw));
     z-index: 4; 
     border-radius: 10px; 
@@ -499,9 +484,35 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: black;
 }
 
+.prompt-inner > p {
+    font-size: 18px;
+}
+
+p.loop {
+    font-weight: bold;
+    font-size: 21px;
+}
+
+p.loop2 {
+    font-weight: bold;
+    font-size: 21px;
+}
+
+p.and {
+    font-size: 21px;
+}
+
+.prompt-inner > h1 {
+    font-size: 47px;
+}
+
+.prompt-inner > h4 {
+    font: 31px;
+    font-style: italic;
+}
 
 .prompt-inner {
     z-index: 5;
@@ -535,7 +546,7 @@ textarea {
 }
 
 #hidden-element > h3  {
-    color: #322F7C;
+    font-size: 28px;
 }
 
 #hidden-element > .btn {
@@ -544,6 +555,20 @@ textarea {
 
 #hidden-element .prompt-btns {
     color: #322F7C;
+}
+
+#hidden-element > #too-long {
+    font-size: 45px;
+    color: white;
+    font-style: italic;
+}
+
+.hbar {
+    width: calc((1/4)*(100vw));;
+    height: 2px;
+    background-color: black;
+    margin-top: 2%;
+    margin-bottom: 9%;
 }
 
 .prompt-btns {
@@ -640,32 +665,36 @@ textarea {
     margin: 0!important;
 }
 
-#fire div.form #email, #first_name, #last_name, #password2  {
+/* #fire div.form #email, #first_name, #last_name, #password2  { */
     /* background-color: rgb(247, 0, 255); */
-    background-color: seashell;
-    opacity: 0.8;
+    /* background-color: seashell;
+    opacity: 0.8; */
     /* background-color: transparent; */
     /* color: rgb(211, 9, 77); */
-    color: black;
+    /* color: black;
     font-style: italic;
     border-radius: 5px;
-}
+} */
 
-div.form #email, #password {
+div.form #email, #password, #first_name, #last_name {
     background-color: #322F7C;
     color: seashell;
-    font-style: italic;
     border-radius: 5px;
+    height: 39px;
 }
 
 div.form .login-btn {
     color: #322F7C;
 }
 
-div.form .reg-btn {
+::placeholder {
     color: seashell;
-    border-width: 1px;
+    /* font-style: italic; */
+    /* letter-spacing: .1rem; */
 }
+
+
+
 
 
 

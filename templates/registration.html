@@ -2,9 +2,10 @@
 {% block title %}Registration{% endblock %}
 
 {% block content %}
-<div class='container-fluid backdrop rocketcolor'>
-  <h3 class='top'>REGISTER</h3>
+<div class='container-fluid backdrop purple'>
+  <!-- <h3 class='top'>REGISTER</h3> -->
   <div class='inner-container' id='fire'>
+    <h3>REGISTER</h3>
     
     <form action='/register-user' method='post'>
           <div class='form'> 
@@ -21,10 +22,11 @@
           </div>
           <div class='form'>
           <label for="password">Password: </label>
-          <input type="password" name="password" id="password2" required>
+          <input type="password" name="password" id="password" required>
           </div>
-          <div class='form bottom'>
-            <input class='btn reg-btn' type="submit" value="Register!">  
+          <div class='form'>
+            <!-- <input class='btn reg-btn' type="submit" value="Register!">   -->
+            <input class='btn login-btn' type="submit" value="Register!"> 
           </div>
     </form>
 
@@ -37,8 +39,8 @@
 
   </div> <!-- End div for inner-container class-->
   
-  <img src='/static/Images/rocket-small.jpg' class='back-img-2'>  
-  <!-- <img src='/static/Images/or-sky-lg-comp.jpg' class='full-img'> -->
+  <img src='/static/Images/login-medium.jpg' class='back-img-2'>
+  <!-- <img src='/static/Images/rocket-small.jpg' class='back-img-2'>   -->
   
 </div> <!-- End of container-fluid backdrop-->   
 {% endblock %}

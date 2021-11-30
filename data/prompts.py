@@ -1,7 +1,7 @@
 prompts_dicts = [
     {'name': 'Single Words with Multiple Meanings',
      'directions': ["With only minutes available to write in response to each prompt, think broadly with an open mind. The immediate goal is to generate a rich and varied field of thoughts, memories, and ideas. Let yourself wander all over the place and collect anything you find. You can sort through the piles later to decide what deserves more focused exploration."],
-     'prompt': 'allow yourself to ponder:',
+     'prompt': 'your word to explore is:',
      'random_word_qty': 1,
      'img_path': '/static/Images/single_many.jpg',
      'loops': 4,

@@ -40,7 +40,7 @@ prompts_dicts = [
     {'name': 'Endings Into Beginnings',
      'directions': ["Write a single sentence, just one line long. It can be absolutely anything you want, as long as it fits on one line.",
                     "Rewrite the last word of sentence #1 onto line #2. This is now the first word in your second sentence. Again write anything you want, as long as it fits on one line.",
-                    "As you progress, try not to follow a logical train of thought from sentence to sentence. Practice letting your mind wander wildly, without a filter or direction. Whatever comes to you, write it down. The reason for this is that Writing It Down clears out the clutter and makes room for something new to pop up.",
+                    "As you progress, try not to follow a logical train of thought from sentence to sentence. Practice letting your mind wander wildly, without a filter or direction. Whatever comes to you, write it down. The reason for this is that writing it down clears out the clutter and makes room for something new to pop up.",
                     "Repeat as time and interest allows. Writers will have unintentional poems in the end."],
      'prompt': 'Your first sentence must include the word:',
      'random_word_qty': 1,

@@ -341,7 +341,14 @@
     background-color: #322F7C;
 }
 
-/* #fire {
+.rocketcolor {
+    /* background-color: rgb(247, 0, 255); */
+    background-color: rgb(70, 3, 31);
+    /* background-color: #322F7C; */
+    box-shadow: inset 0 0 7rem 0px rgba(0, 0, 0, 0.5);
+}
+
+/* #fire {    
     box-shadow: inset 0 0 7rem 0 seashell, 0 0 3rem 0 yellow;
     box-shadow: inset 0 0 7rem 0 seashell, 0 0 3rem 0 yellow, 0 0 7rem 0 orange;
     box-shadow: inset 0 0 7rem 0 seashell, 0 0 3rem 0 yellow, 0 0 7rem 0 orange, 0 0 7rem 0 orangered;
@@ -443,9 +450,11 @@
 
 .back-img-2 {
     height: 88vh;
+    
     width: calc((1/3)*100vw);
     position: absolute;
     top: 6vh;
+    
     left: calc((1/3)*100vw);
     object-fit: cover;
     border-radius: 10px;
@@ -464,10 +473,12 @@
 }
 
 .inner-container {
-    height: calc(100vh - 24%);
+    /* height: calc(100vh - 24%); */
+    height: 88vh;
     width: calc((1/3)*(100vw));
     position: absolute;
-    top: calc(100vh - 88%);
+    /* top: calc(100vh - 88%); */
+    top: 6vh;
     left: calc((1/3)*(100vw));
     z-index: 4; 
     border-radius: 10px; 
@@ -685,16 +696,22 @@ textarea {
     margin: 0!important;
 }
 
-/* #fire div.form #email, #first_name, #last_name, #password2  { */
-    /* background-color: rgb(247, 0, 255); */
-    /* background-color: seashell;
-    opacity: 0.8; */
-    /* background-color: transparent; */
-    /* color: rgb(211, 9, 77); */
-    /* color: black;
+/* #fire div.form #email, #first_name, #last_name, #password2  {
+    
+    background-color: rgb(247, 0, 255);
+    background-color: seashell;
+    opacity: 0.8;
+    background-color: transparent;
+    color: rgb(211, 9, 77);
+    color: black;
     font-style: italic;
     border-radius: 5px;
 } */
+
+#fire div.form label {
+    letter-spacing: .1rem;
+    color: white;    
+}
 
 div.form #email, #password, #first_name, #last_name {
     background-color: #322F7C;

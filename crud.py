@@ -1,5 +1,6 @@
 """CRUD operations"""
 
+from unittest import skip
 from model import db, User, Nugget, Word, connect_to_db
 
 import random
@@ -91,10 +92,15 @@ def seed_words():
 
     word_data = [word.lower() for word in word_data]
     current_db = [word.lower() for word in get_all_words()]
+    print(len(current_db))
     
     for word in word_data:
-        if word not in current_db:
-            create_word(word, email=None)
+        try:
+            if word not in current_db:
+                create_word(word, email=None)
+                print("Created!")
+        except:
+            print("already in db")
 
 def count_table():
     count = Word.query.count()
